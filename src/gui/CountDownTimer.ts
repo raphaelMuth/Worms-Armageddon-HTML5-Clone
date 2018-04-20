@@ -13,6 +13,9 @@
 ///<reference path="../networking/NetworkTimer.ts" />
 ///<reference path="../Settings.ts" />
 
+
+import { Game } from "../Game";
+
 class CountDownTimer
 {
 

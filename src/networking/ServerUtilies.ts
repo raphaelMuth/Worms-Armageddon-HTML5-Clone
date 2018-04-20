@@ -9,7 +9,7 @@ try
 
 } catch (e) { }
 
-module ServerUtilies
+export module ServerUtilies
 {
     export function findByValue(needle, haystack, haystackProperity, )
     {

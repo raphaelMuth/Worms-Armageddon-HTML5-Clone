@@ -7,7 +7,6 @@
  *  author:  Ciarán McCann
  *  url: http://www.ciaranmccann.me/
  */
-declare var Stats;
 declare var $;
 
 class PreRenderer
@@ -67,7 +66,7 @@ module Graphics
     {
         if (Settings.DEVELOPMENT_MODE)
         {
-            stats = new Stats();
+            stats = new (window as any).Stats();
 
             // Align top-left
             stats.domElement.style.position = 'absolute';
@@ -78,13 +77,13 @@ module Graphics
         }
 
         // requestAnim shim layer by Paul Irish
-        window.requestAnimationFrame = (function ()
+        window.requestAnimationFrame = ( () =>
         {
             return window.requestAnimationFrame ||
                 (<any>window).webkitRequestAnimationFrame ||
                 (<any>window).mozRequestAnimationFrame ||
                 (<any>window).oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
+                (<any>window).msRequestAnimationFrame ||
             function ( /* function */ callback, /* DOMElement */ element)
             {
                 window.setTimeout(callback, 1000 / 60);

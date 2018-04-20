@@ -21,10 +21,10 @@ var settings = {
 var api : LeaderBoardApi = new LBApi(settings);
 
 
-app.get('/findUserIdByToken/:token', function (req, res)
+app.get('/findUserIdByToken/:token', (req, res) =>
 {
       var authToken = req.params.token;
-      api.findUsersIdByToken(authToken, function (userId) => {
+      api.findUsersIdByToken(authToken, (userId) => {
               res.send(userId);
       });
 });

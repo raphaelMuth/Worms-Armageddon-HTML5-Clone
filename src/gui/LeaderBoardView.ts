@@ -58,7 +58,7 @@ class LeaderBoardView
     update()
     { 
 
-        var callback = function (leaderBoardData) => {
+        var callback = (leaderBoardData) => {
 
             var leaderBoardData = JSON.parse(leaderBoardData);
             var combinedUserData = [];
@@ -73,7 +73,7 @@ class LeaderBoardView
                 $.ajax({
                     url: url,
                     dataType: 'jsonp',
-                    success: function (userDataFromGoogle) =>
+                    success: (userDataFromGoogle) =>
                     {
                         //If a users account has been disabled this will be null
                         if (userDataFromGoogle.id)
@@ -104,4 +104,4 @@ class LeaderBoardView
         });
 
     }
-
+}

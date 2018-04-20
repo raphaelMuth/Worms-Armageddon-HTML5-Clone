@@ -29,7 +29,9 @@
 ///<reference path="networking/Lobby.ts"/>
 ///<reference path="Tutorial.ts"/>
 
-class Game
+import { Lobby } from "./networking/Lobby";
+import { Events } from "./networking/Events";
+export class Game
 {
     static types = {
         ONLINE_GAME: 0,
@@ -63,7 +65,7 @@ class Game
 
     winner: Player;
 
-    static map: Map = new Map(Maps.castle);
+    static map: GameMap = new GameMap(Maps.castle);
 
     camera: Camera;
 
@@ -89,20 +91,20 @@ class Game
         this.setupCanvas();
 
         //If the window gets resize, resize the canvas
-        $(window).resize(function () => {
+        $(window).resize( () => {
             this.setupCanvas();
         });
 
         //If we go full screen also resize
-        document.addEventListener("fullscreenchange", function () => {
+        document.addEventListener("fullscreenchange", () => {
             this.setupCanvas();
         }, false);
 
-        document.addEventListener("mozfullscreenchange", function () => {
+        document.addEventListener("mozfullscreenchange", () => {
             this.setupCanvas();
         }, false);
 
-        document.addEventListener("webkitfullscreenchange", function () => {
+        document.addEventListener("webkitfullscreenchange", () => {
             this.setupCanvas();
         }, false);
 
@@ -117,7 +119,7 @@ class Game
         this.spawns = [];
         if (Settings.DEVELOPMENT_MODE && this.particleEffectMgmt != null)
         {
-            window.addEventListener("click", function (evt: any) =>
+            window.addEventListener("click", (evt: any) =>
             {
                 this.particleEffectMgmt.add(new ParticleEffect(this.camera.getX() + evt.pageX, this.camera.getY() + evt.pageY));
                 this.spawns.push(new b2Vec2(this.camera.getX() + evt.pageX, this.camera.getY() + evt.pageY));
@@ -247,7 +249,7 @@ class Game
         //Only inited if its a touch device
         TouchUI.init();
 
-        setTimeout(function () =>
+        setTimeout(() =>
         {
             this.state.physicsWorldSettled = true;
 

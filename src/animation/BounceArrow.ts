@@ -20,10 +20,10 @@ class BounceArrow extends Sprite
 
     constructor (initalPos)
     {
+        super(Sprites.weapons.arrow);   
         initalPos.x -= 15;
         initalPos.y -= 120;
-        this.initalPos = initalPos;
-        super(Sprites.weapons.arrow);    
+        this.initalPos = initalPos; 
     }
 
     draw(ctx)

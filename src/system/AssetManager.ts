@@ -196,7 +196,7 @@ module AssetManager
         //    var leftSide = audioToBeLoaded.splice(0, Math.floor(audioToBeLoaded.length / 2));
         //    loadSounds(leftSide);
 
-        //    var timer = setInterval(function () => {
+        //    var timer = setInterval( () => {
 
         //        if (numAssetsLoaded >= imagesToBeLoaded.length + leftSide.length)
         //        {

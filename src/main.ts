@@ -1,3 +1,5 @@
+import { Game } from "./Game";
+
 /**
  *  
  * Worms Armageddon HTML5 Clone 
@@ -12,7 +14,7 @@
 ///<reference path="system/Graphics.ts"/>
 ///<reference path="gui/StartMenu.ts" />
 var GameInstance: Game;
-$(document).ready(function () => {
+$(document).ready( () => {
 
     Settings.getSettingsFromUrl();
 
@@ -23,7 +25,7 @@ $(document).ready(function () => {
         GameInstance = new Game();
         AssetManager.loadAssets();
         
-        startMenu.onGameReady(function ()
+        startMenu.onGameReady( () =>
         {
             startMenu.hide();
             if (GameInstance.state.isStarted == false)

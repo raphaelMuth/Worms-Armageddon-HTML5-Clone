@@ -25,7 +25,7 @@ try
 
 var SOCKET_STORAGE_GAMELOBBY_ID = 'gameLobbyId';
 
-class GameLobby
+export class GameLobby
 {
     static LOBBY_STATS = {
         WATTING_FOR_PLAYERS: 0,
@@ -72,10 +72,10 @@ class GameLobby
     client_init()
     {
         //Have the host client setup all the player objects with all the other clients ids
-        Client.socket.on(Events.gameLobby.START_GAME_HOST, function (data) =>
+        Client.socket.on(Events.gameLobby.START_GAME_HOST, (data) =>
         {
             var gameLobby = (Utilies.copy(new GameLobby(null, null), data));
-            Game.map = new Map(Maps[gameLobby.mapName]);
+            Game.map = new GameMap(Maps[gameLobby.mapName]);
             
             //Update local copy of the lobby
             GameInstance.lobby.client_GameLobby = gameLobby;
@@ -89,10 +89,10 @@ class GameLobby
 
         // Start the game for all other playrs by passing the player information create
         // by the host client to them.
-        Client.socket.on(Events.gameLobby.START_GAME_FOR_OTHER_CLIENTS, function (data) =>
+        Client.socket.on(Events.gameLobby.START_GAME_FOR_OTHER_CLIENTS, (data) =>
         {
              var gameLobby = (Utilies.copy(new GameLobby(null, null), data.lobby));          
-             Game.map = new Map(Maps[gameLobby.mapName]);
+             Game.map = new GameMap(Maps[gameLobby.mapName]);
 
              //Update local copy of the lobby
             GameInstance.lobby.client_GameLobby = gameLobby;
@@ -107,7 +107,7 @@ class GameLobby
             GameInstance.start();
         });
 
-        Client.socket.on(Events.gameLobby.PLAYER_DISCONNECTED, function (playerId)
+        Client.socket.on(Events.gameLobby.PLAYER_DISCONNECTED, (playerId) =>
         {
             Logger.log("Events.gameLobby.PLAYER_DISCONNECTED " + playerId);
 
@@ -142,7 +142,7 @@ class GameLobby
 
     }
 
-    contains(playerId: string) : bool
+    contains(playerId: string): boolean
     {
         for (var i in this.playerIds)
         {          

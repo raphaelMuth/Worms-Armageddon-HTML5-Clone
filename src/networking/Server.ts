@@ -22,16 +22,21 @@ declare var Util;
 // works with Node.js modules. http://stackoverflow.com/questions/13444064/typescript-conditional-module-import-export
 try
 {
-    var Events = require('./Events');
-    var ServerUtilies = require('./ServerUtilies');
-    var GameLobby = require('./GameLobby');
-    var ServerSettings = require('./ServerSettings');
-    var Lobby = require('./Lobby');
+   // var Events = require('./Events');
+   // var ServerUtilies = require('./ServerUtilies');
+   // var GameLobby = require('./GameLobby');
+   // var ServerSettings = require('./ServerSettings');
+   // var Lobby = require('./Lobby');
     var Util = require('util');
     var BandwidthMonitor = require('./BandwidthMonitor');
 
 
 } catch (error) { }
+
+import { Events } from "./Events";
+import { GameLobby } from "./GameLobby";
+import { ServerSettings } from "./ServerSettings";
+import { Lobby } from "./Lobby";
 
 class GameServer
 {
@@ -45,14 +50,14 @@ class GameServer
         io = require('socket.io').listen(port);
         this.lobby = new Lobby();
 
-        io.sockets.on('connection', function (socket) =>
+        io.sockets.on('connection', (socket) =>
         {
             this.lobby.onConnection(socket,io);
             this.lobby.server_init(socket,io);
             this.lobby.onDisconnection(socket,io);
 
             //This allows the clients to get the  current time of the server
-            socket.on(Events.client.GET_GAME_TIME, function (msg,func) =>
+            socket.on(Events.client.GET_GAME_TIME, (msg,func) =>
             {
                 func(Date.now());
             });

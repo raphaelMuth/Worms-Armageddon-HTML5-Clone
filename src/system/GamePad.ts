@@ -192,14 +192,14 @@ function TwinStickControls(canvas)
     //might try two again at some stage
     this.sticks = [new Stick(this.inputSize)]; 
 
-    var _this = this;
+    var __this = this;
     canvas.addEventListener("touchstart", function (e)
     {
         e.preventDefault();
 
         for (var i = 0; i < e.touches.length; ++i)
         {
-            var stick = _this.sticks[i];
+            var stick = __this.sticks[i];
             var touch = e.touches[i];
 
             stick.setLimitXY(touch.pageX, touch.pageY);
@@ -214,7 +214,7 @@ function TwinStickControls(canvas)
 
         for (var i = 0; i < e.touches.length; ++i)
         {
-            var stick = _this.sticks[i];
+            var stick = __this.sticks[i];
             var touch = e.touches[i];
 
             stick.setInputXY(touch.pageX, touch.pageY);
@@ -226,7 +226,7 @@ function TwinStickControls(canvas)
         var touches = e.changedTouches;
         for (var i = 0; i < touches.length; ++i)
         {
-            var stick = _this.sticks[i];
+            var stick = __this.sticks[i];
             stick.active = false;
         }
     });

@@ -14,28 +14,27 @@
 // Throws to many errors to use
 //<reference path="../../external/box2dweb-2.1.d.ts" />
 
-declare var Box2D;
 //Global defining of shortened names for box2d types
-var b2Vec2 = Box2D.Common.Math.b2Vec2,
-    b2BodyDef = Box2D.Dynamics.b2BodyDef,
-    b2Body = Box2D.Dynamics.b2Body,
-    b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
-    b2Fixture = Box2D.Dynamics.b2Fixture,
-    b2World = Box2D.Dynamics.b2World,
-    b2MassData = Box2D.Collision.Shapes.b2MassData,
-    b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
-    b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
-    b2DebugDraw = Box2D.Dynamics.b2DebugDraw,
-    b2AABB = Box2D.Collision.b2AABB,
-    b2ContactListener = Box2D.Dynamics.b2ContactListener,
-    b2RayCastInput = Box2D.Collision.b2RayCastInput,
-    b2DistanceJointDef = Box2D.Dynamics.Joints.b2DistanceJointDef,
-    b2RayCastOutput = Box2D.Collision.b2RayCastOutput,
-    b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef,
-    b2RevoluteJoint = Box2D.Dynamics.Joints.b2RevoluteJoint,
-    b2SimplexVertex = Box2D.Collision.b2SimplexVertex,
-    b2WorldManifold = Box2D.Collision.b2WorldManifold,
-    b2Shape = Box2D.Collision.Shapes.b2Shape;
+var b2Vec2 = (window as any).Box2D.Common.Math.b2Vec2,
+    b2BodyDef = (window as any).Box2D.Dynamics.b2BodyDef,
+    b2Body = (window as any).Box2D.Dynamics.b2Body,
+    b2FixtureDef = (window as any).Box2D.Dynamics.b2FixtureDef,
+    b2Fixture = (window as any).Box2D.Dynamics.b2Fixture,
+    b2World = (window as any).Box2D.Dynamics.b2World,
+    b2MassData = (window as any).Box2D.Collision.Shapes.b2MassData,
+    b2PolygonShape = (window as any).Box2D.Collision.Shapes.b2PolygonShape,
+    b2CircleShape = (window as any).Box2D.Collision.Shapes.b2CircleShape,
+    b2DebugDraw = (window as any).Box2D.Dynamics.b2DebugDraw,
+    b2AABB = (window as any).Box2D.Collision.b2AABB,
+    b2ContactListener = (window as any).Box2D.Dynamics.b2ContactListener,
+    b2RayCastInput = (window as any).Box2D.Collision.b2RayCastInput,
+    b2DistanceJointDef = (window as any).Box2D.Dynamics.Joints.b2DistanceJointDef,
+    b2RayCastOutput = (window as any).Box2D.Collision.b2RayCastOutput,
+    b2RevoluteJointDef = (window as any).Box2D.Dynamics.Joints.b2RevoluteJointDef,
+    b2RevoluteJoint = (window as any).Box2D.Dynamics.Joints.b2RevoluteJoint,
+    b2SimplexVertex = (window as any).Box2D.Collision.b2SimplexVertex,
+    b2WorldManifold = (window as any).Box2D.Collision.b2WorldManifold,
+    b2Shape = (window as any).Box2D.Collision.Shapes.b2Shape;
 
 
 
@@ -92,7 +91,7 @@ module Physics
         // I have set the this pionter as the user data, which allows me to then call methods
         // on that class as we can see below.
         var listener = new b2ContactListener();
-        listener.BeginContact = function (contact) =>
+        listener.BeginContact = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().beginContact != null)
@@ -108,7 +107,7 @@ module Physics
         }
 
 
-        listener.EndContact = function (contact) =>
+        listener.EndContact = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().endContact != null)
@@ -123,7 +122,7 @@ module Physics
             }
         }
 
-        listener.PostSolve = function (contact,impulse) =>
+        listener.PostSolve = (contact,impulse) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().postSolve != null)
@@ -139,7 +138,7 @@ module Physics
 
         }
 
-        listener.PreSolve = function (contact) =>
+        listener.PreSolve = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().preSolve != null)
@@ -234,7 +233,7 @@ module Physics
         aabb.lowerBound.Set(epicenter.x - effectedRadius, epicenter.y - effectedRadius);
         aabb.upperBound.Set(epicenter.x + effectedRadius, epicenter.y + effectedRadius);
 
-        Physics.world.QueryAABB(function (fixture) =>
+        Physics.world.QueryAABB((fixture) =>
         {
             funcToApplyToEach(fixture, epicenter);
             return true;

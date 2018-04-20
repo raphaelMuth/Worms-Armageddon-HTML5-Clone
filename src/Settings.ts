@@ -77,14 +77,12 @@ module Settings
         Logger.log(" Notice: argv are as follows " + commands);
     }
 
-    export function getUrlVars()
-    {
+
+
+    export function getUrlVars() {
         var vars = {};
-        window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) 
-        {
-            vars[key] = value;
-            return true;
-        });
+        var localVars = new URL(window.location.href).search.substring(1).split('&');
+        localVars.forEach(pair => { vars[pair.split('=')[0]] = pair.split('=')[1] })
         return vars;
     }
 }

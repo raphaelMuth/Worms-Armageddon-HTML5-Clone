@@ -30,24 +30,24 @@ class WeaponsMenu
         this.htmlElement = $("#" + this.cssId);
 
 
-         $('#'+this.toggleButtonCssId).click(function =>
+         $('#'+this.toggleButtonCssId).click(() =>
          {
              if (Client.isClientsTurn())
             {
-                _this.toggle();
+                __this.toggle();
             }
          });
 
-        var _this = this;
+        var __this = this;
         $(window).keypress(function (event)
         {
             if (Client.isClientsTurn() && Controls.checkControls(Controls.toggleWeaponMenu, event.which))
             {
-                _this.toggle();
+                __this.toggle();
             }
         });
 
-        $('body').mousedown(function (event) =>
+        $('body').mousedown((event) =>
         {
             if (Client.isClientsTurn() && Controls.checkControls(Controls.toggleWeaponMenu, event.which))
             {
@@ -139,7 +139,7 @@ class WeaponsMenu
         $($(this.htmlElement).children().get(1)).append(html);
 
 
-        var _this = this;
+        var __this = this;
         $("#" + this.cssId + " li").click(function ()
         {
             var weaponId = parseInt($(this).attr('id'));
@@ -151,8 +151,8 @@ class WeaponsMenu
             }
 
             AssetManager.getSound("CursorSelect").play();
-            _this.selectWeapon(weaponId);
-            _this.toggle();
+            __this.selectWeapon(weaponId);
+            __this.toggle();
         });
 
     }

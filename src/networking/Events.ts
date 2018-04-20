@@ -1,4 +1,4 @@
-module Events
+export module Events
 {
     // All event names have been shorted to reduce packet size
 
