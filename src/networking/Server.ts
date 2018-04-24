@@ -11,9 +11,9 @@
 ///<reference path="GameLobby.ts"/>
 ///<reference path="Events.ts"/>
 ///<reference path="Lobby.ts"/>
-///<reference path="BandwidthMonitor.ts"/>
-declare var require
-export declare var Util;
+
+declare var require: { (arg0: string): void; (arg0: string): void; (arg0: string): { listen: (arg0: any) => void; }; }
+export declare var Util : any;
 
 //var io;
 
@@ -28,7 +28,7 @@ try
    // var ServerSettings = require('./ServerSettings');
    // var Lobby = require('./Lobby');
     Util = require('util');
-    var BandwidthMonitor = require('./BandwidthMonitor');
+    //var BandwidthMonitor = require('./BandwidthMonitor');
 
 
 } catch (error) { }
@@ -41,22 +41,22 @@ export class GameServer
 {
 
     lobby: Lobby;
-    bandwidthMonitor;
+    bandwidthMonitor: any;
 
-    constructor (port)
+    constructor(port: any)
     {   
-        this.bandwidthMonitor = new BandwidthMonitor(true);
-        io = require('socket.io').listen(port);
+        //this.bandwidthMonitor = new BandwidthMonitor(true);
+        io = (require('socket.io') as any).listen(port);
         this.lobby = new Lobby();
 
-        io.sockets.on('connection', (socket) =>
+        io.sockets.on('connection', (socket: any) =>
         {
             this.lobby.onConnection(socket,io);
             this.lobby.server_init(socket,io);
             this.lobby.onDisconnection(socket,io);
 
             //This allows the clients to get the  current time of the server
-            socket.on(Events.client.GET_GAME_TIME, (msg,func) =>
+            socket.on(Events.client.GET_GAME_TIME, (msg: any, func: any) =>
             {
                 func(Date.now());
             });

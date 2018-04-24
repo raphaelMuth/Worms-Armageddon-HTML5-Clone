@@ -8,8 +8,8 @@
 *.so
 *.v11.suo
 
-
 #Directories
+.vs
 obj
 bin
 *.js

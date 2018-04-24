@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="tsconfig.json" />
     <TypeScriptCompile Include="src\Game.ts" />
     <TypeScriptCompile Include="src\system\AssetManager.ts" />
     <Content Include=".gitignore" />
@@ -684,9 +685,9 @@
     <DefineConstants>
     </DefineConstants>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
-    <TypeScriptTarget>ES2017</TypeScriptTarget>
+    <TypeScriptTarget>ES2016</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
-    <TypeScriptModuleKind>System</TypeScriptModuleKind>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
@@ -724,6 +725,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\2.6\tsc" "$(ProjectDir)src\main.ts" --out "$(ProjectDir)src\Worms.js"</PreBuildEvent>
+    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\2.6\tsc" "$(ProjectDir)src\main.ts"</PreBuildEvent>
   </PropertyGroup>
 </Project>
