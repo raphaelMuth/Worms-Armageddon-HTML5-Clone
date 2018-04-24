@@ -1,3 +1,6 @@
+import { Sprite } from "../animation/Sprite";
+import { Sprites } from "../animation/SpriteDefinitions";
+
 /**
  * JetPack.js
  *
@@ -7,7 +10,7 @@
  */
 ///<reference path="../animation/Sprite.ts"/>
 
-class Waves
+export class Waves
 {
     wave: Sprite;
     wave2: Sprite;

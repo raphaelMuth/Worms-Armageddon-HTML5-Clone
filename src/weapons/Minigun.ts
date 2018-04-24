@@ -15,7 +15,16 @@
 ///<reference path="../animation/Sprite.ts"/>
 ///<reference path="../animation/Effects.ts"/>
 
-class Minigun extends RayWeapon
+import { Game } from "../Game";
+import { Timer } from "../system/Timer";
+import { Sprites } from "../animation/SpriteDefinitions";
+import { RayWeapon } from "./RayWeapon";
+import { AssetManager } from "../system/AssetManager";
+import { Worm } from "../Worm";
+import { Physics } from "../system/Physics";
+import { Effects } from "../animation/Effects";
+let GameInstance: Game;
+export class Minigun extends RayWeapon
 {
     fireRate: Timer;
 

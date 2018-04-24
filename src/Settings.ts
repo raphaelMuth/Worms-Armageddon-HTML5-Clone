@@ -1,3 +1,5 @@
+import { Logger } from "./system/Utilies";
+
 /**
  *  Global settings for the whole game
  *
@@ -7,7 +9,7 @@
  */
 ///<reference path="system/Utilies.ts" />
 
-module Settings
+export module Settings
 {
 
     //Game vars

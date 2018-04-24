@@ -15,7 +15,13 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Physics.ts" />
 
-class Particle extends PhysicsSprite
+import { Game } from "../Game";
+import { PhysicsSprite } from "./PhysicsSprite";
+import { Sprites } from "./SpriteDefinitions";
+import { Utilies } from "../system/Utilies";
+import { b2Vec2 } from "../system/Physics";
+let GameInstance: Game;
+export class Particle extends PhysicsSprite
 {
    
     constructor (initalPos, initalVelocity, spriteDef = Sprites.particleEffects.flame1)
@@ -27,7 +33,7 @@ class Particle extends PhysicsSprite
 }
 
 
-class Cloud extends PhysicsSprite
+export class Cloud extends PhysicsSprite
 {
    
     constructor ()

@@ -1,3 +1,6 @@
+import { Team } from "../Team";
+import { Settings } from "../Settings";
+
 /**
  * HealthMenu.js
  *
@@ -10,7 +13,9 @@
 ///<reference path="../Settings.ts"/>
 ///<reference path="../system/AssetManager.ts"/>
 ///<reference path="../system/Controls.ts"/>
-class HealthMenu
+
+var $;
+export class HealthMenu
 {
 
     constructor (players)

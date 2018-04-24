@@ -1,3 +1,9 @@
+import { Logger } from "./Utilies";
+import { Settings } from "../Settings";
+import { Sound, SoundFallback } from "../audio/Sound";
+import { Sprites } from "../animation/SpriteDefinitions";
+import { Maps } from "../environment/Maps";
+
 /**
  * AssetManager.js
  * This manages the loading of image and sound assets. 
@@ -10,8 +16,8 @@
  */
 ///<reference path="../audio/Sound.ts"/>
 declare var BufferLoader;
-
-module AssetManager
+var $;
+export module AssetManager
 {
     export var numAssetsLoaded: number = 0;
 

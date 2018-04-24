@@ -12,8 +12,14 @@
 ///<reference path="../Game.ts"/>
 ///<reference path="../Main.ts"/>
 ///<reference path="Sprite.ts"/>
-
-module Effects
+import { Game } from "../Game";
+import { AssetManager } from "../system/AssetManager";
+import { Utilies } from "../system/Utilies";
+import { ParticleEffect } from "./ParticleEffect";
+import { Physics, b2Body } from "../system/Physics";
+import { Worm } from "../Worm";
+let GameInstance: Game;
+export module Effects
 {
 
     export function explosion(epicenter,

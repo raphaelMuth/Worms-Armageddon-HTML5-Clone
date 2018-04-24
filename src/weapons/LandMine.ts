@@ -1,14 +1,14 @@
 /////<reference path="BaseWeapon.ts"/>
 /////<reference path="ThrowableWeapon.ts"/>
 
-//class LandMine extends ThrowableWeapon
+//export class LandMine extends ThrowableWeapon
 //{
 //    countDownTicks: number;
 
 //    constructor (ammo)
 //    {
 //         //Modify the takeout animation, to be used as its idel animation or aiming animations
-//        // though you don't aim dynamaie. It just happens to be easy subclass of Throwable
+//        // though you don't aim dynamaie. It just happens to be easy sub class of Throwable
 //        var modifedSpriteDef = Utilies.copy( new Object(), Sprites.worms.takeOutLandMine);
 //        modifedSpriteDef.frameY = modifedSpriteDef.frameCount-1;
 

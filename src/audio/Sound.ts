@@ -1,3 +1,7 @@
+import { Logger } from "../system/Utilies";
+import { AssetManager } from "../system/AssetManager";
+import { Settings } from "../Settings";
+
 /**
  * Sound.js
  * Sound wraps the Web audio api. When a sound file is loaded 
@@ -11,9 +15,12 @@
  *  url: http://www.ciaranmccann.me/
  */
 ///<reference path="../system/Utilies.ts"/>
-declare var webkitAudioContext; 
+declare global {
+    export let webkitAudioContext; 
+}
 
-class Sound
+var $;
+export class Sound
 {
     static context;
 
@@ -79,7 +86,7 @@ class Sound
 }
 
 //SoundFallback use just the simple Audio tag, works ok but not as feature full as web audio api.
-class SoundFallback extends Sound
+export class SoundFallback extends Sound
 {
     audio: HTMLAudioElement;
 

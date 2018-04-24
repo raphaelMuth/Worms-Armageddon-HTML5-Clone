@@ -10,7 +10,13 @@
 ///<reference path="Settings.ts" />
 
 
-class Tutorial
+import { Game } from "./Game";
+import { Notify, keyboard } from "./system/Utilies";
+import { Controls } from "./system/Controls";
+import { HolyGrenade } from "./weapons/HolyGrenade";
+import { JetPack } from "./weapons/JetPack";
+let GameInstance: Game;
+export class Tutorial
 {
 
     currentCommand;

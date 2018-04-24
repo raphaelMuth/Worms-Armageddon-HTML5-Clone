@@ -1,3 +1,5 @@
+import { LeaderBoardApi } from "./LeaderBoardApi";
+
 /**
  *
  *  License: Apache 2.0

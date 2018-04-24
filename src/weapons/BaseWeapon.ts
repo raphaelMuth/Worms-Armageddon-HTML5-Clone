@@ -2,8 +2,15 @@
 ///<reference path="../animation/SpriteDefinitions.ts" />
 ///<reference path="../system/AssetManager.ts" />
 ///<reference path="ForceIndicator.ts" />
+import { Logger } from "../system/Utilies";
+import { Worm } from "../Worm";
+import { SpriteDefinition } from "../animation/SpriteDefinitions";
+import { ForceIndicator } from "./ForceIndicator";
+import { AssetManager } from "../system/AssetManager";
 
-class BaseWeapon
+
+
+export class BaseWeapon
 {
     ammo;
     name;

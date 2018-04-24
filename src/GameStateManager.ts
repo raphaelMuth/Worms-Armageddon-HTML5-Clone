@@ -14,7 +14,11 @@
 ///<reference path="system/Timer.ts" />
 ///<reference path="Settings.ts" />
 
-class GameStateManager
+import { Game } from "./Game";
+import { Player } from "./Player";
+import { Physics } from "./system/Physics";
+let GameInstance: Game;
+export class GameStateManager
 {
     private nextTurnTrigger: boolean;
     private currentPlayerIndex: number;

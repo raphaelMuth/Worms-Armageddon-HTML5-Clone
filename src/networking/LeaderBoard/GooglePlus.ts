@@ -1,3 +1,9 @@
+import { LobbyMenu } from "../../gui/LobbyMenu";
+import { Client } from "../Client";
+import { Events } from "../Events";
+import { Notify } from "../../system/Utilies";
+import { Settings } from "../../Settings";
+
 /**
  *  
  * Leaderboards.js is a RESETful api for the leaderboards information
@@ -10,9 +16,10 @@
 ///<reference path="../../system/Utilies.ts"/>
 
 
-var access_token;
+var $;
+export declare let access_token;
 
-function googlePlusSignIn(authResult)
+export function googlePlusSignIn(authResult)
 {
 
     $(LobbyMenu.CSS_ID.NICKNAME_PICK_UP).modal('hide');
@@ -42,7 +49,7 @@ function googlePlusSignIn(authResult)
 }
 
 
-function googlePlusdisconnectUser(access_token)
+export function googlePlusdisconnectUser(access_token)
 {
     var revokeUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' +
         access_token;

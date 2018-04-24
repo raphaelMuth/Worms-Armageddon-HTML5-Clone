@@ -1,3 +1,6 @@
+import { Sprite } from "./Sprite";
+import { b2Vec2 } from "../system/Physics";
+
 /**
  * PhysicsSprite.js
  * This is handies sprite that also need to animate interm of movement and physics
@@ -14,7 +17,7 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Physics.ts" />
 
-class PhysicsSprite extends Sprite
+export class PhysicsSprite extends Sprite
 {
     velocity;
     position;

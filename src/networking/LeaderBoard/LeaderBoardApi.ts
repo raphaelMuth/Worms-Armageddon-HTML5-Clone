@@ -1,5 +1,4 @@
 declare var require;
-declare var module;
 
 var mongo = require('mongodb');
 var Server = mongo.Server,
@@ -7,7 +6,7 @@ var Server = mongo.Server,
     BSON = mongo.BSONPure;
 var curl = require('node-curl');
 
-class LeaderBoardApi
+export class LeaderBoardApi
 {
     settings;
     db: any;
@@ -106,7 +105,8 @@ class LeaderBoardApi
 }
 
 declare var exports: any;
+var module;
 if (typeof exports != 'undefined')
 {
-    (module ).exports = LeaderBoardApi;
+    (module).exports = LeaderBoardApi;
 }

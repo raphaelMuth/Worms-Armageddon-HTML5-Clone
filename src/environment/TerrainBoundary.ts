@@ -1,3 +1,6 @@
+import { Physics, b2FixtureDef, b2PolygonShape, b2BodyDef, b2Body } from "../system/Physics";
+import { Worm } from "../Worm";
+
 /**
  * WorldBoundary.js
  *
@@ -9,7 +12,7 @@
 ///<reference path="../system/Utilies.ts" />
 ///<reference path="Terrain.ts" />
 
-class TerrainBoundary
+export class TerrainBoundary
 {
     worldWidth;
     worldHeight;

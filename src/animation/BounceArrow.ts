@@ -1,3 +1,6 @@
+import { Sprite } from "./Sprite";
+import { Sprites } from "./SpriteDefinitions";
+
 /**
  * BounceArrow.js
  *
@@ -14,7 +17,7 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Physics.ts" />
 
-class BounceArrow extends Sprite
+export class BounceArrow extends Sprite
 {
     initalPos;
 

@@ -1,10 +1,20 @@
 ///<reference path="../system/Utilies.ts"/>
 ///<reference path="InstructionChain.ts"/>
+
+declare global {
+    export let io;
+}
+
+
 import { Game } from "../Game";
-
-declare var io;
-
-module Client
+import { Timer } from "../system/Timer";
+import { Events } from "./Events";
+import { Logger, Notify, Utilies } from "../system/Utilies";
+import { InstructionChain } from "./InstructionChain";
+import { PhysiscsDataPacket, Physics } from "../system/Physics";
+import { Settings } from "../Settings";
+let GameInstance: Game;
+export module Client
 {
     export var socket;
     export var id;

@@ -1,4 +1,6 @@
 import { Game } from "../Game";
+import { Maps, GameMap } from "../environment/Maps";
+import { AssetManager } from "../system/AssetManager";
 
 /**
  * StartMenu.js
@@ -11,8 +13,8 @@ import { Game } from "../Game";
  */
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Utilies.ts"/>
-
-class SettingsMenu
+var $;
+export class SettingsMenu
 {
     view;
     levelName;

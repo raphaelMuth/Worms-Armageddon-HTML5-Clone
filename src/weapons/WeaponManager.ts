@@ -1,3 +1,14 @@
+import { BaseWeapon } from "./BaseWeapon";
+import { Shotgun } from "./Shotgun";
+import { HandGrenade } from "./HandGrenade";
+import { HolyGrenade } from "./HolyGrenade";
+import { Dynamite } from "./Dynamite";
+import { JetPack } from "./JetPack";
+import { Minigun } from "./Minigun";
+import { NinjaRope } from "./NinjaRope";
+import { Drill } from "./Drill";
+import { Bazzoka } from "./ProjectileWeapon";
+
 /**
  * WeaponManager.js
  * Each Team has a load of weapons that are managed by this class. 
@@ -24,7 +35,7 @@
 ///<reference path="../weapons/Blowtorch.ts"/>
 ///<reference path="../weapons/ProjectileWeapon.ts"/>
 
-class WeaponManager
+export class WeaponManager
 {
 
     private weaponsAndTools: BaseWeapon[];

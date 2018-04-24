@@ -1,3 +1,9 @@
+import { PhysicsSprite } from "./animation/PhysicsSprite";
+import { Worm } from "./Worm";
+import { b2Vec2, Physics } from "./system/Physics";
+import { Sprites } from "./animation/SpriteDefinitions";
+import { Utilies } from "./system/Utilies";
+
 /**
  * Target.js
  *
@@ -16,7 +22,7 @@
 ///<reference path="animation/Sprite.ts"/>
 ///<reference path="animation/PhysicsSprite.ts"/>
 
-class Target extends PhysicsSprite
+export class Target extends PhysicsSprite
 {
     // Aiming
     private targetDirection;

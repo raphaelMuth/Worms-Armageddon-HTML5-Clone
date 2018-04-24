@@ -1,3 +1,11 @@
+import { Sprites } from "../animation/SpriteDefinitions";
+import { Sprite } from "../animation/Sprite";
+import { Graphics } from "../system/Graphics";
+import { Worm } from "../Worm";
+import { Physics } from "../system/Physics";
+import { Utilies } from "../system/Utilies";
+import { AssetManager } from "../system/AssetManager";
+
 /**
  * ForceIndicator.js
  *
@@ -7,7 +15,7 @@
  */
 ///<reference path="../animation/Sprite.ts"/>
 
-class ForceIndicator
+export class ForceIndicator
 {
     private forcePercentage;
     private forceRateIncrease;

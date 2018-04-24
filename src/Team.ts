@@ -14,7 +14,15 @@
 ///<reference path="animation/BounceArrow.ts"/>
 
 
-class Team
+import { Game } from "./Game";
+import { Worm, WormDataPacket } from "./Worm";
+import { WeaponManager } from "./weapons/WeaponManager";
+import { Utilies } from "./system/Utilies";
+import { Sprites } from "./animation/SpriteDefinitions";
+import { Physics } from "./system/Physics";
+import { AssetManager } from "./system/AssetManager";
+let GameInstance: Game;
+export class Team
 {
     worms: Worm[];
     currentWorm: number;
@@ -179,7 +187,7 @@ class Team
 
 }
 
-class TeamDataPacket
+export class TeamDataPacket
 {
     wormsDataPacket: WormDataPacket[];
     name;

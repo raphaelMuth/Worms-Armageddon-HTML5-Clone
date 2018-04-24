@@ -1,3 +1,15 @@
+import { BaseWeapon } from "./BaseWeapon";
+import { Sprite } from "../animation/Sprite";
+import { Sprites } from "../animation/SpriteDefinitions";
+import { b2Vec2, Physics } from "../system/Physics";
+import { Worm } from "../Worm";
+import { ThrowableWeapon } from "./ThrowableWeapon";
+import { Client } from "../networking/Client";
+import { Events } from "../networking/Events";
+import { InstructionChain } from "../networking/InstructionChain";
+import { Controls } from "../system/Controls";
+import { keyboard, Utilies } from "../system/Utilies";
+
 /**
  * JetPack.js
  *
@@ -11,7 +23,7 @@
 ///<reference path="../environment/Terrain.ts"/>
 ///<reference path="BaseWeapon.ts"/>
 
-class JetPack extends BaseWeapon
+export class JetPack extends BaseWeapon
 {
     thurstScaler: number;
     bottomflame: Sprite;

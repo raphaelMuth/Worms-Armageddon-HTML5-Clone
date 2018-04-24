@@ -1,8 +1,13 @@
 
 ///<reference path="BaseWeapon.ts"/>
-///<reference path="ThrowableWeapon.ts"/>
+///<reference path="ThrowableWeapon.ts"/>import { Sprites } from "../animation/SpriteDefinitions";
+import { ThrowableWeapon } from "./ThrowableWeapon";
+import { Physics } from "../system/Physics";
+import { Timer } from "../system/Timer";
 
-class HandGrenade extends ThrowableWeapon
+
+
+export class HandGrenade extends ThrowableWeapon
 {
 
     constructor (ammo)

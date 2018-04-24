@@ -12,7 +12,17 @@
 ///<reference path="../Game.ts"/>
 ///<reference path="../system/AssetManager.ts"/>
 ///<reference path="../system/Controls.ts"/>
-class WeaponsMenu
+
+import { Game } from "../Game";
+import { Client } from "../networking/Client";
+import { Controls } from "../system/Controls";
+import { Events } from "../networking/Events";
+import { InstructionChain } from "../networking/InstructionChain";
+import { BaseWeapon } from "../weapons/BaseWeapon";
+import { AssetManager } from "../system/AssetManager";
+let GameInstance: Game;
+var $;
+export class WeaponsMenu
 {
     htmlElement;
     isVisable;

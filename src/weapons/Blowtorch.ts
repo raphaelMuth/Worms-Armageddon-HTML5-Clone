@@ -14,7 +14,7 @@
 /////<reference path="BaseWeapon.ts"/>
 /////<reference path="Drill.ts"/>
 
-//class Blowtorch extends Drill
+//export class Blowtorch extends Drill
 //{
 //    constructor(ammo)
 //    {

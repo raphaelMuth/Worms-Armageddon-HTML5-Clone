@@ -1,3 +1,11 @@
+import { Lobby } from "../networking/Lobby";
+import { LeaderBoardView } from "./LeaderBoardView";
+import { SettingsMenu } from "./SettingsMenu";
+import { AssetManager } from "../system/AssetManager";
+import { GameLobby } from "../networking/GameLobby";
+import { Client } from "../networking/Client";
+import { access_token, googlePlusdisconnectUser } from "../networking/LeaderBoard/GooglePlus";
+
 /**
  *  
  * LobbyMenu.js
@@ -11,7 +19,8 @@
 ///<reference path="../networking/LeaderBoard/GooglePLus.ts"/>
 ///<reference path="LeaderBoardView.ts"/>
 
-class LobbyMenu
+var $;
+export class LobbyMenu
 {
     private view: string;
     static CSS_ID = {

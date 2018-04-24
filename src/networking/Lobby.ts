@@ -16,6 +16,17 @@ declare var Util;
 declare var server;
 declare var require;
 
+import { Game } from "../Game";
+import { GameLobby } from "./GameLobby";
+import { LobbyMenu } from "../gui/LobbyMenu";
+import { ServerUtilies } from "./ServerUtilies";
+import { Events } from "./Events";
+import { ServerSettings } from "./ServerSettings";
+import { Client } from "./Client";
+import { Logger, Utilies, Notify } from "../system/Utilies";
+import { Maps } from "../environment/Maps";
+import { Settings } from "../Settings";
+let GameInstance: Game;
 
 // Had to give up the benfits of types in this instance, as a problem with the way ES6 proposal module system
 // works with Node.js modules. http://stackoverflow.com/questions/13444064/typescript-conditional-module-import-export
@@ -27,9 +38,11 @@ try
 
 //This is some mega hacky stuff, but its the only way I can get around a very strange typescript static anaylse error which
 // prevents the project from compling.
+    /* trying to solve this with the imports
     eval("var GameLobby = require('./GameLobby');var Events = require('./Events'); " +
         " var ServerSettings = require('./ServerSettings'); var ServerUtilies = require('./ServerUtilies'); " +
         "var Util = require('util');var server = require('./Server'); var server = require('./server'); ")
+    */
 } catch (error) { }
 
 
@@ -391,7 +404,8 @@ export class Lobby
 // var Lobby = require('./Lobby');
 // new Lobby.Lobby();
 declare var exports: any;
+var module;
 if (typeof exports != 'undefined')
 {
-    (module ).exports = Lobby;
+    (module).exports = Lobby;
 }

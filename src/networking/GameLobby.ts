@@ -19,12 +19,21 @@ try
 {
 //This is some mega hacky stuff, but its the only way I can get around a very strange typescript static anaylse error which
 // prevents the project from compling.
-    eval(" var Events = require('./Events');var ServerUtilies = require('./ServerUtilies');var Util = require('util');var ServerSettings = require('./ServerSettings');");
+    //eval(" var Events = require('./Events');var ServerUtilies = require('./ServerUtilies');var Util = require('util');var ServerSettings = require('./ServerSettings');");
 
 } catch (error) { }
 
 var SOCKET_STORAGE_GAMELOBBY_ID = 'gameLobbyId';
 
+import { Game } from "../Game";
+import { ServerUtilies } from "./ServerUtilies";
+import { Events } from "./Events";
+import { Client } from "./Client";
+import { Utilies, Logger, Notify } from "../system/Utilies";
+import { GameMap, Maps } from "../environment/Maps";
+import { Player } from "../Player";
+let GameInstance: Game;
+var $;
 export class GameLobby
 {
     static LOBBY_STATS = {
@@ -212,7 +221,8 @@ export class GameLobby
 
 
 declare var exports: any;
+var module;
 if (typeof exports != 'undefined')
 {
-    (module ).exports = GameLobby;
+    (module).exports = GameLobby;
 }

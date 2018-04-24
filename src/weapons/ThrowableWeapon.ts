@@ -17,7 +17,20 @@
 ///<reference path="../animation/Sprite.ts"/>
 ///<reference path="../animation/Effects.ts"/>
 
-class ThrowableWeapon extends BaseWeapon
+import { Game } from "../Game";
+import { Logger, Utilies } from "../system/Utilies";
+import { BaseWeapon } from "./BaseWeapon";
+import { Timer } from "../system/Timer";
+import { Sprite } from "../animation/Sprite";
+import { Graphics } from "../system/Graphics";
+import { SpriteDefinition } from "../animation/SpriteDefinitions";
+import { AssetManager } from "../system/AssetManager";
+import { b2FixtureDef, b2CircleShape, Physics, b2BodyDef, b2Body } from "../system/Physics";
+import { Dynamite } from "./Dynamite";
+import { Worm } from "../Worm";
+import { Effects } from "../animation/Effects";
+let GameInstance: Game;
+export class ThrowableWeapon extends BaseWeapon
 {
     static DENSITY = 50;
     body;

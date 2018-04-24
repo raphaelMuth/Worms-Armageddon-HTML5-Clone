@@ -16,7 +16,16 @@
 ///<reference path="Main.ts" />
 ///<reference path="Worm.ts" />
 
-class WormAnimationManger
+import { Game } from "./Game";
+import { Worm } from "./Worm";
+import { Timer } from "./system/Timer";
+import { Sprites } from "./animation/SpriteDefinitions";
+import { Physics } from "./system/Physics";
+import { Effects } from "./animation/Effects";
+import { Utilies } from "./system/Utilies";
+import { ToostMessage } from "./animation/HealthReduction";
+let GameInstance: Game;
+export class WormAnimationManger
 {
     static WORM_STATE = {
 

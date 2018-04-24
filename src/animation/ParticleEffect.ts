@@ -1,3 +1,9 @@
+import { Sprite } from "./Sprite";
+import { Particle } from "./Particle";
+import { Sprites } from "./SpriteDefinitions";
+import { b2Vec2 } from "../system/Physics";
+import { Utilies } from "../system/Utilies";
+
 /**
  * ParticleSystem.js
  * Manages all the different sprites that make up the explosion effect
@@ -15,7 +21,7 @@
 ///<reference path="../Settings.ts" />
 
 
-class ParticleEffect
+export class ParticleEffect
 {
     private x: number;
     private y: number;

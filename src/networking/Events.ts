@@ -1,3 +1,4 @@
+
 export module Events
 {
     // All event names have been shorted to reduce packet size
@@ -34,7 +35,7 @@ export module Events
 
 // Hack 
 declare var exports: any;
-declare var module: any;
+declare var module;
 if (typeof exports != 'undefined')
 {
     (module).exports = Events;

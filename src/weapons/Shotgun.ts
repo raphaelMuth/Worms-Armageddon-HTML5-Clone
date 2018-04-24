@@ -15,7 +15,16 @@
 ///<reference path="../animation/Sprite.ts"/>
 ///<reference path="../animation/Effects.ts"/>
 
-class Shotgun extends RayWeapon
+import { Game } from "../Game";
+import { RayWeapon } from "./RayWeapon";
+import { SpriteDefinition, Sprites } from "../animation/SpriteDefinitions";
+import { Timer } from "../system/Timer";
+import { Worm } from "../Worm";
+import { AssetManager } from "../system/AssetManager";
+import { Physics } from "../system/Physics";
+import { Effects } from "../animation/Effects";
+let GameInstance: Game;
+export class Shotgun extends RayWeapon
 {
     fireAnimations: SpriteDefinition[];
     fireAnimationIndex: number;

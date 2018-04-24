@@ -1,8 +1,13 @@
 ///<reference path="ServerSettings.ts"/>
+import { ServerSettings } from "./ServerSettings";
+import { Settings } from "../Settings";
+import { Util } from "./Server";
+
+
 
 // HACK
 // Had to give up the benfits of types in this instance, as a problem with the way ES6 proposal module system
-// works with Node.js modules. http://stackoverflow.com/questions/13444064/typescript-conditional-module-import-export
+// works with Node.js export modules. http://stackoverflow.com/questions/13444064/typescript-conditional-module-import-export
 try
 {
     eval("var ServerSettings = require('./ServerSettings');var Util = require('util');");
@@ -63,6 +68,7 @@ export module ServerUtilies
 
 //Hack
 declare var exports: any;
+declare var module: any;
 if (typeof exports != 'undefined')
 {
     (module).exports = ServerUtilies;

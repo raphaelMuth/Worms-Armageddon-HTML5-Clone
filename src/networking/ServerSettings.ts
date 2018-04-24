@@ -1,4 +1,4 @@
-export  module ServerSettings
+export module ServerSettings
 {
     export var DEVELOPMENT_MODE = false;
     export var MAX_PLAYERS_PER_LOBBY = 4;
@@ -9,6 +9,7 @@ export  module ServerSettings
 
 //Hack
 declare var exports: any;
+declare var module: any;
 if (typeof exports != 'undefined') {
   (module).exports = ServerSettings;
 }

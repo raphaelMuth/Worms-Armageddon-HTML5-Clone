@@ -13,7 +13,23 @@
 ///<reference path="system/GamePad.ts"/>
 ///<reference path="system/Controls.ts"/>
 
-class Player
+import { Game } from "./Game";
+import { Team, TeamDataPacket } from "./Team";
+import { Timer } from "./system/Timer";
+import { GamePad } from "./system/GamePad";
+import { Utilies, Notify, keyboard, TouchUI } from "./system/Utilies";
+import { Controls } from "./system/Controls";
+import { Events } from "./networking/Events";
+import { Client } from "./networking/Client";
+import { InstructionChain } from "./networking/InstructionChain";
+import { AssetManager } from "./system/AssetManager";
+import { Worm } from "./Worm";
+import { Physics } from "./system/Physics";
+import { ThrowableWeapon } from "./weapons/ThrowableWeapon";
+import { ProjectileWeapon } from "./weapons/ProjectileWeapon";
+let GameInstance: Game;
+var $;
+export class Player
 {
     private team: Team;
     id: string;
@@ -251,7 +267,7 @@ class Player
 }
 
 
-class PlayerDataPacket
+export class PlayerDataPacket
 {
     teamDataPacket: TeamDataPacket;
     position;

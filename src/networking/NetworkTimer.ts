@@ -1,3 +1,7 @@
+import { Timer } from "../system/Timer";
+import { Client } from "./Client";
+import { Events } from "./Events";
+
 /**
  * NetworkedTimer.js
  *
@@ -9,7 +13,7 @@
 ///<reference path="Events.ts"/>
 ///<reference path="Client.ts"/>
 
-class NetworkTimer extends Timer
+export class NetworkTimer extends Timer
 {
 
     currentServerTime : number; // When last checked

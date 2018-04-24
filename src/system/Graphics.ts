@@ -1,3 +1,5 @@
+import { Settings } from "../Settings";
+
 /**
  * Graphics.js
  * Graphics namespace provides helper functions for creating a canvas 
@@ -9,7 +11,7 @@
  */
 declare var $;
 
-class PreRenderer
+export class PreRenderer
 {
 
     private createPreRenderCanvas(width,height)
@@ -55,7 +57,7 @@ class PreRenderer
 
 }
 
-module Graphics
+export module Graphics
 {
 
     export var stats;    

@@ -1,3 +1,6 @@
+import { SpriteDefinition } from "./SpriteDefinitions";
+import { AssetManager } from "../system/AssetManager";
+
 /**
  *  
  * This class manages animation of sprites
@@ -10,7 +13,7 @@
 ///<reference path="../Game.ts"/>
 ///<reference path="../Main.ts"/>
 ///<reference path="SpriteDefinitions.ts"/>
-class Sprite
+export class Sprite
 {
 
     spriteDef;

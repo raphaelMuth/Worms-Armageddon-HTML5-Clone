@@ -1,3 +1,5 @@
+import { Utilies } from "../system/Utilies";
+
 /**
  * ParticleEffectManager.js
  * This simply manages an arrray of particle effects, updates and draws them 
@@ -16,7 +18,7 @@
 ///<reference path="../system/Timer.ts" />
 ///<reference path="../Settings.ts" />
 
-class EffectsManager
+export class EffectsManager
 {
 
     particleEffects;

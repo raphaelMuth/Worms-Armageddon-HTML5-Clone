@@ -1,3 +1,6 @@
+import { LobbyMenu } from "./LobbyMenu";
+import { Settings } from "../Settings";
+
 /**
  *  
  * LeaderboardsView.js manages updating the leaderboards view and all that shit
@@ -8,7 +11,8 @@
  */
 ///<reference path="../Game.ts"/>
 
-class LeaderBoardView
+var $;
+export class LeaderBoardView
 {
     private leaderBoardView: string;
     private profileView: string;

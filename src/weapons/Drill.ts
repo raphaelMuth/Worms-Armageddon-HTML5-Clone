@@ -16,7 +16,16 @@
 ///<reference path="BaseWeapon.ts"/>
 
 
-class Drill extends BaseWeapon
+import { Game } from "../Game";
+import { Logger } from "../system/Utilies";
+import { AssetManager } from "../system/AssetManager";
+import { BaseWeapon } from "./BaseWeapon";
+import { Worm } from "../Worm";
+import { Timer } from "../system/Timer";
+import { Sprites } from "../animation/SpriteDefinitions";
+import { Physics } from "../system/Physics";
+let GameInstance: Game;
+export class Drill extends BaseWeapon
 {
     worm: Worm;
     timeBetweenExploisionsTimer: Timer;

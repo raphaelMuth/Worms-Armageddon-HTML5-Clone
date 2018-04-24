@@ -15,8 +15,14 @@
 
 
 import { Game } from "../Game";
-
-class CountDownTimer
+import { NetworkTimer } from "../networking/NetworkTimer";
+import { Settings } from "../Settings";
+import { Timer } from "../system/Timer";
+import { AssetManager } from "../system/AssetManager";
+let GameInstance: Game;
+var module;
+var $;
+export class CountDownTimer
 {
 
     timer: Timer;

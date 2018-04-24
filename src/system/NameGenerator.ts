@@ -1,3 +1,5 @@
+import { Utilies } from "./Utilies";
+
 /**
  * NameGenerator.js
  * The name generator gets a list of famous programmers from wikipeda and randomly assigns them to worms
@@ -11,7 +13,7 @@
 
 //TODO This is Kinda redundent
 
-module NameGenerator
+export module NameGenerator
 {
     //defaults
     var randomNamesList = [

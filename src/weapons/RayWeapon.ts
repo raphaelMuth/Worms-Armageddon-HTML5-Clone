@@ -1,3 +1,6 @@
+import { BaseWeapon } from "./BaseWeapon";
+import { SpriteDefinition } from "../animation/SpriteDefinitions";
+
 /**
  * RayBased Weapons.js
  *
@@ -15,7 +18,7 @@
 ///<reference path="../animation/Sprite.ts"/>
 ///<reference path="../animation/Effects.ts"/>
 
-class RayWeapon extends BaseWeapon
+export class RayWeapon extends BaseWeapon
 {
     damageToTerrainRadius: number;
     damgeToWorm: number;

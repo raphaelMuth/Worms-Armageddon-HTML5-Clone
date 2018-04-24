@@ -14,8 +14,19 @@
 ///<reference path="system/Timer.ts" />
 ///<reference path="Settings.ts" />
 
+import { Game } from "./Game";
+import { Logger } from "./system/Utilies";
+import { Worm } from "./Worm";
+import { Player } from "./Player";
+import { WormAnimationManger } from "./WormAnimationManger";
+import { ThrowableWeapon } from "./weapons/ThrowableWeapon";
+import { ProjectileWeapon } from "./weapons/ProjectileWeapon";
+import { Client } from "./networking/Client";
+import { InstructionChain } from "./networking/InstructionChain";
+import { Events } from "./networking/Events";
+let GameInstance: Game;
 
-class WormManager
+export class WormManager
 {
 
     allWorms: Worm[];

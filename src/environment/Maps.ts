@@ -1,4 +1,7 @@
-class GameMap
+import { Utilies } from "../system/Utilies";
+import { AssetManager } from "../system/AssetManager";
+
+export class GameMap
 {
     private mapDef;
     private currentSpawn;
@@ -30,7 +33,7 @@ class GameMap
     }
 }
 
-module Maps
+export module Maps
 {
     export var priates = {
         smallImage: "smalllevel2",

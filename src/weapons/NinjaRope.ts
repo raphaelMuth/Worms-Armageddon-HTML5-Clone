@@ -1,3 +1,15 @@
+import { BaseWeapon } from "./BaseWeapon";
+import { Sprite } from "../animation/Sprite";
+import { Sprites } from "../animation/SpriteDefinitions";
+import { keyboard, Utilies } from "../system/Utilies";
+import { Controls } from "../system/Controls";
+import { Client } from "../networking/Client";
+import { Events } from "../networking/Events";
+import { InstructionChain } from "../networking/InstructionChain";
+import { AssetManager } from "../system/AssetManager";
+import { Physics, b2FixtureDef, b2PolygonShape, b2BodyDef, b2Body, b2CircleShape, b2DistanceJointDef } from "../system/Physics";
+import { Worm } from "../Worm";
+
 /**
  * NinjaRope.js
  *
@@ -11,7 +23,7 @@
 ///<reference path="../environment/Terrain.ts"/>
 ///<reference path="BaseWeapon.ts"/>
 
-class NinjaRope extends BaseWeapon
+export class NinjaRope extends BaseWeapon
 {
     ropeJoints;
     ropeNots;

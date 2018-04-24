@@ -1,3 +1,5 @@
+import { b2Vec2 } from "./Physics";
+
 /**
  * Camera.js
  * This controls the viewport
@@ -8,7 +10,7 @@
  */
 ///<reference path="Utilies.ts"/>
 
-class Camera
+export class Camera
 {
 
     position;

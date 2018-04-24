@@ -12,7 +12,17 @@
 ///<reference path="../system/Physics.ts"/>
 ///<reference path="BaseWeapon.ts"/>
 
-class ProjectileWeapon extends BaseWeapon
+import { Game } from "../Game";
+import { Logger, Utilies } from "../system/Utilies";
+import { Worm } from "../Worm";
+import { BaseWeapon } from "./BaseWeapon";
+import { b2FixtureDef, b2CircleShape, Physics, b2BodyDef, b2Body } from "../system/Physics";
+import { Sprite } from "../animation/Sprite";
+import { SpriteDefinition, Sprites } from "../animation/SpriteDefinitions";
+import { Effects } from "../animation/Effects";
+import { ParticleEffect } from "../animation/ParticleEffect";
+let GameInstance: Game;
+export class ProjectileWeapon extends BaseWeapon
 {
 
     body;
@@ -190,7 +200,7 @@ class ProjectileWeapon extends BaseWeapon
 }
 
 
-class Bazzoka extends ProjectileWeapon
+export class Bazzoka extends ProjectileWeapon
 {
 
     constructor(ammo)

@@ -14,7 +14,7 @@
  *  url: http://www.ciaranmccann.me/
  */
 
-class InstructionChain
+export class InstructionChain
 {
     //instructionChain shorted to iC so the packet is smaller
     iC: string[];

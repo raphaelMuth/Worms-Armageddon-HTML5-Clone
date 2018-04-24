@@ -1,13 +1,20 @@
 ///<reference path="BaseWeapon.ts"/>
-///<reference path="ThrowableWeapon.ts"/>
+///<reference path="ThrowableWeapon.ts"/>import { Sprites } from "../animation/SpriteDefinitions";
+import { Utilies } from "../system/Utilies";
+import { ThrowableWeapon } from "./ThrowableWeapon";
+import { Worm } from "../Worm";
+import { b2Vec2, Physics } from "../system/Physics";
+import { AssetManager } from "../system/AssetManager";
 
-class Dynamite extends ThrowableWeapon
+
+
+export class Dynamite extends ThrowableWeapon
 {
 
     constructor (ammo)
     {
         //Modify the takeout animation, to be used as its idel animation or aiming animations
-        // though you don't aim dynamaie. It just happens to be easy subclass of Throwable
+        // though you don't aim dynamaie. It just happens to be easy sub class of Throwable
         var modifedSpriteDef = Utilies.copy( new Object(), Sprites.worms.takeOutDynamite);
         modifedSpriteDef.frameY = modifedSpriteDef.frameCount-1;
 

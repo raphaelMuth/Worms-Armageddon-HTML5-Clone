@@ -13,7 +13,13 @@
 ///<reference path="TerrainBoundary.ts"/>
 ///<reference path="Waves.ts"/>
 
-class Terrain
+import { Game } from "../Game";
+import { Waves } from "./Waves";
+import { TerrainBoundary } from "./TerrainBoundary";
+import { b2Vec2, b2FixtureDef, b2PolygonShape, b2BodyDef, b2Body, Physics, b2AABB } from "../system/Physics";
+import { Logger } from "../system/Utilies";
+let GameInstance: Game;
+export class Terrain
 {
 
     drawingCanvas: HTMLCanvasElement;

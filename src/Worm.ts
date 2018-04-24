@@ -22,7 +22,26 @@
 ///<reference path="WormAnimationManger.ts" />
 ///<reference path="Target.ts" />
 
-class Worm extends Sprite
+import { Game } from "./Game";
+import { Logger, Utilies } from "./system/Utilies";
+import { Graphics } from "./system/Graphics";
+import { Sprite } from "./animation/Sprite";
+import { BounceArrow } from "./animation/BounceArrow";
+import { Team } from "./Team";
+import { WormAnimationManger } from "./WormAnimationManger";
+import { Target } from "./Target";
+import { Timer } from "./system/Timer";
+import { Sprites } from "./animation/SpriteDefinitions";
+import { NameGenerator } from "./system/NameGenerator";
+import { Physics, b2FixtureDef, b2CircleShape, b2Vec2, b2BodyDef, b2Body, b2PolygonShape } from "./system/Physics";
+import { AssetManager } from "./system/AssetManager";
+import { Terrain } from "./environment/Terrain";
+import { BaseWeapon } from "./weapons/BaseWeapon";
+import { JetPack } from "./weapons/JetPack";
+import { NinjaRope } from "./weapons/NinjaRope";
+import { Client } from "./networking/Client";
+let GameInstance: Game;
+export class Worm extends Sprite
 {
 
     static DENSITY = 10.0;
@@ -568,7 +587,7 @@ class Worm extends Sprite
 
 }
 
-class WormDataPacket
+export class WormDataPacket
 {
     name;
     position;

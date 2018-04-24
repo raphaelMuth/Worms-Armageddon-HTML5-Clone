@@ -1,3 +1,5 @@
+import { keyboard } from "./Utilies";
+
 /**
  *  
  * Centrialized location for controls and input
@@ -8,7 +10,7 @@
  *  author:  Ciarán McCann
  *  url: http://www.ciaranmccann.me/
  */
-module Controls
+export module Controls
 {
     export var toggleWeaponMenu =
     {

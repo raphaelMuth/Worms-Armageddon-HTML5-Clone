@@ -31,6 +31,36 @@
 
 import { Lobby } from "./networking/Lobby";
 import { Events } from "./networking/Events";
+import { Terrain } from "./environment/Terrain";
+import { Player, PlayerDataPacket } from "./Player";
+import { WeaponsMenu } from "./gui/WeaponsMenu";
+import { CountDownTimer } from "./gui/CountDownTimer";
+import { WormManager } from "./WormManager";
+import { GameStateManager } from "./GameStateManager";
+import { Tutorial } from "./Tutorial";
+import { Cloud } from "./animation/Particle";
+import { StartMenu } from "./gui/StartMenu";
+import { Client } from "./networking/Client";
+import { HealthMenu } from "./gui/HealthMenu";
+import { SpriteDefinition } from "./animation/SpriteDefinitions";
+import { ParticleEffect } from "./animation/ParticleEffect";
+import { EffectsManager } from "./animation/EffectsManager";
+import { AssetManager } from "./system/AssetManager";
+import { GameMap, Maps } from "./environment/Maps";
+import { Camera } from "./system/Camera";
+import { Graphics } from "./system/Graphics";
+import { Physics, PhysiscsDataPacket, b2Vec2 } from "./system/Physics";
+import { Utilies, keyboard, TouchUI, Notify } from "./system/Utilies";
+import { Timer } from "./system/Timer";
+import { Worm } from "./Worm";
+import { Settings } from "./Settings";
+import { TwinStickControls } from "./system/GamePad";
+import { Logger } from "./system/Utilies";
+import { InstructionChain } from "./networking/InstructionChain";
+import { access_token } from "./networking/LeaderBoard/GooglePlus";
+
+var $;
+let GameInstance: Game;
 export class Game
 {
     static types = {
@@ -414,7 +444,7 @@ export class Game
 }
 
 
-class GameDataPacket
+export class GameDataPacket
 {
     players: PlayerDataPacket[];
 

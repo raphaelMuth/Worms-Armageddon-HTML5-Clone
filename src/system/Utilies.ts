@@ -1,3 +1,8 @@
+import { AssetManager } from "./AssetManager";
+import { Sound } from "../audio/Sound";
+import { b2Vec2 } from "./Physics";
+import { Settings } from "../Settings";
+
 /**
  * Utitles 
  * This namespace contains helper functions that I use a lot around the code base
@@ -18,10 +23,12 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="Physics.ts" />
 declare var $;
-interface String
-{
-    format(...numbers: String[]);
+declare global {
+    export interface String {
+        format(...numbers: String[]);
+    }
 }
+
 
 String.prototype.format = function (...numbers: String[])
 {
@@ -35,7 +42,7 @@ String.prototype.format = function (...numbers: String[])
     });
 };
 
-module Notify
+export module Notify
 {
     export var locked = false;
     export var levels = {
@@ -94,7 +101,7 @@ module Notify
 
 }
 
-module Utilies
+export module Utilies
 {
 
     //Allows for the copying of Object types into their proper types, used for copy constructer
@@ -309,7 +316,7 @@ module Utilies
 
 
 
-module Logger
+export module Logger
 {
 
     export function log(message)
@@ -337,7 +344,7 @@ module Logger
     }
 }
 
-module TouchUI
+export module TouchUI
 {
     var isFireHeld = false;
     var isJumpPressed = false;
@@ -414,7 +421,7 @@ module TouchUI
 
 }
 
-module keyboard
+export module keyboard
 {
 
     export var keys = [];

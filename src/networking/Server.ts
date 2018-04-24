@@ -13,7 +13,7 @@
 ///<reference path="Lobby.ts"/>
 ///<reference path="BandwidthMonitor.ts"/>
 declare var require
-declare var Util;
+export declare var Util;
 
 //var io;
 
@@ -27,7 +27,7 @@ try
    // var GameLobby = require('./GameLobby');
    // var ServerSettings = require('./ServerSettings');
    // var Lobby = require('./Lobby');
-    var Util = require('util');
+    Util = require('util');
     var BandwidthMonitor = require('./BandwidthMonitor');
 
 
@@ -37,8 +37,7 @@ import { Events } from "./Events";
 import { GameLobby } from "./GameLobby";
 import { ServerSettings } from "./ServerSettings";
 import { Lobby } from "./Lobby";
-
-class GameServer
+export class GameServer
 {
 
     lobby: Lobby;

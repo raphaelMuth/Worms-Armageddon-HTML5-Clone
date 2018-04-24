@@ -10,10 +10,15 @@ import { Game } from "./Game";
  *  author:  Ciarán McCann
  *  url: http://www.ciaranmccann.me/
  */
-///<reference path="Game.ts"/>
-///<reference path="system/Graphics.ts"/>
 ///<reference path="gui/StartMenu.ts" />
-var GameInstance: Game;
+
+import { Settings } from "./Settings";
+import { AssetManager } from "./system/AssetManager";
+import { Graphics } from "./system/Graphics";
+import { StartMenu } from "./gui/StartMenu";
+let GameInstance: Game;
+
+var $;
 $(document).ready( () => {
 
     Settings.getSettingsFromUrl();

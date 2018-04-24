@@ -1,5 +1,10 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Timer.ts" />
+import { Utilies } from "../system/Utilies";
+import { b2Vec2 } from "../system/Physics";
+import { Timer } from "../system/Timer";
+
+
 declare var test, ok, equal, notEqual, asyncTest, start,QUnit
 
 QUnit.module( "Timer.js" );

@@ -12,7 +12,7 @@
  *  url: http://www.ciaranmccann.me/
  */
 
-interface SpriteDefinition
+export interface SpriteDefinition
 {
     imageName: string;
     frameY: number;
@@ -22,7 +22,7 @@ interface SpriteDefinition
 
 
 // -1 for msPerFrame means no animation
-module Sprites
+export module Sprites
 {
 
     export var weaponIcons = {

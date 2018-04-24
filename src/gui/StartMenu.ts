@@ -10,10 +10,17 @@
 ///<reference path="../Settings.ts" />
 ///<reference path="../system/Controls.ts"/>
 ///<reference path="LobbyMenu.ts"/>
-///<reference path="SettingsMenu.ts"/>
 declare var $;
 
-class StartMenu
+import { Tutorial } from "../Tutorial";
+import { SettingsMenu } from "./SettingsMenu";
+import { Game } from "../Game";
+import { Controls } from "../system/Controls";
+import { Settings } from "../Settings";
+import { AssetManager } from "../system/AssetManager";
+import { TouchUI, Notify } from "../system/Utilies";
+let GameInstance: Game;
+export class StartMenu
 {
     controlsView;
     settingsMenu: SettingsMenu;

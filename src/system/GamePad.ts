@@ -1,4 +1,6 @@
-class GamePad
+import { AssetManager } from "./AssetManager";
+
+export class GamePad
 {
     isConnected;
     pad;
@@ -183,7 +185,7 @@ Stick.prototype.update = function ()
 };
 
 
-function TwinStickControls(canvas)
+export function TwinStickControls(canvas)
 {
     this.limitSize = 64;
     this.inputSize = 36;

@@ -1,3 +1,7 @@
+import { Timer } from "../system/Timer";
+import { Graphics } from "../system/Graphics";
+import { Utilies } from "../system/Utilies";
+
 /**
  * HealthReduction.js
  *
@@ -16,7 +20,7 @@
 
 //TODO Needs to be clean up, after I hacked it to be more generic 
 // for just displaying messages, demo 2moro not enough time to clean it up. More features!!!
-class ToostMessage
+export class ToostMessage
 {
     finished;
     color;
