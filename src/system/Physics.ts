@@ -11,12 +11,6 @@ import { Settings } from "../Settings";
  *  url: http://www.ciaranmccann.me/
  */
 
-///<reference path="../Game.ts"/>
-///<reference path="Utilies.ts" />
-
-// Throws to many errors to use
-//<reference path="../../external/box2dweb-2.1.d.ts" />
-
 //Global defining of shortened names for box2d types
 export const b2Vec2 = (window as any).Box2D.Common.Math.b2Vec2;
 export const b2BodyDef = (window as any).Box2D.Dynamics.b2BodyDef;

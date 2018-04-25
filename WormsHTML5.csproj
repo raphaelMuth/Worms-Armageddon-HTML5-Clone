@@ -23,14 +23,23 @@
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="tsconfig.json" />
+    <Content Include="css\custom.min.css">
+      <DependentUpon>custom.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="tsconfisg.json" />
+    <Content Include="web.config" />
+    <None Include="bundleconfig.json" />
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs-0.18.4.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs.d.ts" />
     <TypeScriptCompile Include="src\Game.ts" />
     <TypeScriptCompile Include="src\system\AssetManager.ts" />
     <Content Include=".gitignore" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\custom.min.css">
-      <DependentUpon>custom.css</DependentUpon>
-    </Content>
     <Content Include="data\img\wormsBackGround.png" />
     <Content Include="external\bootstrap.min.js" />
     <Content Include="external\Box2dWeb-2.1.a.3.js" />
@@ -685,7 +694,7 @@
     <DefineConstants>
     </DefineConstants>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
-    <TypeScriptTarget>ES2016</TypeScriptTarget>
+    <TypeScriptTarget>ES2015</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
@@ -725,6 +734,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\2.6\tsc" "$(ProjectDir)src\main.ts"</PreBuildEvent>
+    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\2.6\tsc"  "$(ProjectDir)/src/main.ts" --m "AMD" -t "ES6" --out "$(ProjectDir)/src/Worms.js"</PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -19,7 +19,8 @@ import { StartMenu } from "./gui/StartMenu";
 let GameInstance: Game;
 
 var $;
-$(document).ready( () => {
+$(document).ready(() => {
+    console.log("aaaaaa")
 
     Settings.getSettingsFromUrl();
 

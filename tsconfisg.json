@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "module": "amd",
-    "out": "./src/Worm.js",
+    "out": "src/Worm.js",
     "sourceMap": true
   },
   "compileOnSave": true,
-  "files": [ "./src/main.ts", "./src/Settings.ts" ],
   "exclude": [
     "node_modules",
     "wwwroot"
-  ]
+  ],
+  "files": ["src/main.ts"]
 }

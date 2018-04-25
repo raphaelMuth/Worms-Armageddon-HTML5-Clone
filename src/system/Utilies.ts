@@ -20,8 +20,6 @@ import { Settings } from "../Settings";
  *  author:  Ciarán McCann
  *  url: http://www.ciaranmccann.me/
  */
-///<reference path="../Settings.ts" />
-///<reference path="Physics.ts" />
 declare var $;
 declare global {
     export interface String {

@@ -28,6 +28,7 @@ export class StartMenu
 
     constructor()
     {
+        console.log("aquiiiiiiiiiii")
         //TODO gamepad controls
         //<img style="width:80%" src="data/images/menu/xbox360controls.png"><h2>Or</h2>
         this.controlsView = '<div style="text-align:center">' +

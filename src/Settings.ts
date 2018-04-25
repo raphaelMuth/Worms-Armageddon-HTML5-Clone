@@ -32,7 +32,7 @@ export module Settings
     // http://westciv.com/tools/manifestR/
     export var BUILD_MANIFEST_FILE = false;
 
-    export var REMOTE_ASSERT_SERVER = "../"; //"../college/fyp/"
+    export var REMOTE_ASSERT_SERVER = "http://www.ciaranmccann.me/college/fyp" ; //"../college/fyp/"
 
     export var API_KEY = "AIzaSyA1aZhcIhRQ2gbmyxV5t9pGK47hGsiIO7U";
 
