@@ -18,6 +18,9 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UpgradeBackupLocation />
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\Game.ts" />
@@ -654,6 +657,13 @@
   <ItemGroup>
     <Content Include="src\networking\LeaderBoard\package.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bundleconfig.json" />
+    <Content Include="web.config" />
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -696,6 +706,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\tsc" "$(ProjectDir)src\main.ts" --out "$(ProjectDir)src\Worms.js"</PreBuildEvent>
+    <PreBuildEvent>"$(PROGRAMFILES)\Microsoft SDKs\TypeScript\2.6\tsc" "$(ProjectDir)src\main.ts" --out "$(ProjectDir)src\Worms.js"</PreBuildEvent>
   </PropertyGroup>
 </Project>

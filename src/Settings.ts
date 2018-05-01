@@ -15,11 +15,11 @@ module Settings
     export var TURN_TIME_WARING = 5; // after 10 secounds warn player they are running out of time
    
     //General game settings
-    export var SOUND = false;
+    export var SOUND = true;
 
     //Server details
-    export var NODE_SERVER_IP = '96.126.111.211'; 
-    export var LEADERBOARD_API_URL = 'http://96.126.111.211'; 
+    export var NODE_SERVER_IP = 'worms.ciaranmccann.me';
+    export var LEADERBOARD_API_URL = 'http://worms.ciaranmccann.me';
     export var NODE_SERVER_PORT = '8080';
 
     // development vars
@@ -30,7 +30,7 @@ module Settings
     // http://westciv.com/tools/manifestR/
     export var BUILD_MANIFEST_FILE = false;
 
-    export var REMOTE_ASSERT_SERVER = "../"; //"../college/fyp/"
+    export var REMOTE_ASSERT_SERVER = "../college/fyp/"; //"../college/fyp/"
 
     export var API_KEY = "AIzaSyA1aZhcIhRQ2gbmyxV5t9pGK47hGsiIO7U";
 
@@ -77,14 +77,10 @@ module Settings
         Logger.log(" Notice: argv are as follows " + commands);
     }
 
-    export function getUrlVars()
-    {
+    export function getUrlVars() {
         var vars = {};
-        window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) 
-        {
-            vars[key] = value;
-            return true;
-        });
+        var localVars = new URL(window.location.href).search.substring(1).split('&');
+        localVars.forEach(pair => { vars[pair.split('=')[0]] = pair.split('=')[1] })
         return vars;
     }
 }

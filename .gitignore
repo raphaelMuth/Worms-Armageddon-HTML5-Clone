@@ -11,6 +11,7 @@
 
 #Directories
 obj
+.vs
 bin
 *.js
 *.map

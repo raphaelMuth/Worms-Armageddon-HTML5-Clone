@@ -45,14 +45,14 @@ class SettingsMenu
 
     bind(callback)
     {
-        var _this = this;
+        var __this = this;
         $('a.thumbnail').click(function()
         {
             var levelId = $(this).attr('id');
             $('a.thumbnail').css({ "background": "white" });
             $(this).css({ "background": "yellow" });
-            _this.levelName = levelId;
-            Game.map = new Map(Maps[levelId]);
+            __this.levelName = levelId;
+            Game.map = new GameMap(Maps[levelId]);
             callback();
 
         });

@@ -1,6 +1,5 @@
 CACHE MANIFEST
-
-#version 
+#version update anothers dfsjdfds
 
 CACHE:
 
@@ -152,13 +151,12 @@ http://www.ciaranmccann.me/wormsjs/css/custom.min.css
 #javascript files
 
 http://www.ciaranmccann.me/wormsjs/external/jquery.1.8.2.min.js
-http://www.ciaranmccann.me/wormsjs/external/Box2dWeb-2.1.a.3.js
+http://www.ciaranmccann.me/wormsjs/external/Box2dWeb-2.1.a.3.min.js
 http://www.ciaranmccann.me/wormsjs/external/Stats.js
-http://www.ciaranmccann.me/wormsjs/external/bootstrap-modal.js
 http://www.ciaranmccann.me/wormsjs/src/audio/SoundBufferLoader.js
 http://www.ciaranmccann.me/wormsjs/src/audio/Sound.js
-http://www.ciaranmccann.me/wormsjs/src/Worms.js
-http://96.126.111.211:8080/socket.io/socket.io.js
+http://www.ciaranmccann.me/wormsjs/src/Worms.min.js
+http://worms.ciaranmccann.me:8080/socket.io/socket.io.js
 
 NETWORK:
 *
