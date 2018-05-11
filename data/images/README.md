@@ -1,1 +1,0 @@
-Game Assets are not in the git repo due to the fact I don't own the copyright to them. 

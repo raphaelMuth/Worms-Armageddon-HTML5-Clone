@@ -52,7 +52,7 @@ class StartMenu
         {
             var loading = setInterval(() =>
             {
-
+                (window as any).view = this.controlsView
                 $('#notice').empty();
                 if (AssetManager.getPerAssetsLoaded() >= 100)
                 {

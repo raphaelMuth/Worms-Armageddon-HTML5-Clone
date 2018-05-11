@@ -20,8 +20,6 @@
 ///<reference path="../weapons/RayWeapon.ts"/>
 ///<reference path="../weapons/Shotgun.ts"/>
 ///<reference path="../weapons/Minigun.ts"/>
-///<reference path="../weapons/LandMine.ts"/>
-///<reference path="../weapons/Blowtorch.ts"/>
 ///<reference path="../weapons/ProjectileWeapon.ts"/>
 
 class WeaponManager
@@ -38,12 +36,10 @@ class WeaponManager
             new HandGrenade(20),
             new HolyGrenade(2),
             new Dynamite(5),
-           // new LandMine(10), //Not finished
             new JetPack(5), 
             new Minigun(4),   //Bug: might take out for final demo          
             new NinjaRope(50),
             new Drill(3),
-           // new Blowtorch(3), //not finished
             new Bazzoka(15)
                
                        
