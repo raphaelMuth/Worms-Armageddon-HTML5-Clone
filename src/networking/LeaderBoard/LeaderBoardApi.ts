@@ -34,7 +34,7 @@ class LeaderBoardApi
     {
         var authToken = req.params.token;
         this.findUsersIdByToken(authToken, (userId) => {
-            this.db.collection(this.settings.userTable, function (err, collection) {
+            this.db.collection(this.settings.userTable, (err, collection) => {
                 collection.remove({"userId": userId });
             });
         });
@@ -80,8 +80,8 @@ class LeaderBoardApi
     getLeaderBoard(req, res)
     {
         console.log(res);
-        this.db.collection(this.settings.userTable, function (err, collection) {
-            collection.find().sort({ "winCount": -1 }).toArray(function (err, items)
+        this.db.collection(this.settings.userTable,  (err, collection) => {
+            collection.find().sort({ "winCount": -1 }).toArray( (err, items) =>
             {
                 console.log(items);
                 res.jsonp(JSON.stringify(items));

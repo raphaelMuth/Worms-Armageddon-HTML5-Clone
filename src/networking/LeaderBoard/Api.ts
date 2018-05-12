@@ -21,16 +21,16 @@ var settings = {
 var api : LeaderBoardApi = new LBApi(settings);
 
 
-app.get('/findUserIdByToken/:token', function (req, res)
+app.get('/findUserIdByToken/:token', (req, res) =>
 {
       var authToken = req.params.token;
-      api.findUsersIdByToken(authToken, function (userId) {
+      api.findUsersIdByToken(authToken, (userId) => {
               res.send(userId);
       });
 });
-app.get('/getLeaderBoard', function (req, res) { api.getLeaderBoard(req, res) });
-app.get('/updateUser/:token', function (req, res) { api.updateUser(req, res) });
-app.get('/remove/:token', function (req, res) { api.remove(req, res) });
+app.get('/getLeaderBoard', (req, res) => { api.getLeaderBoard(req, res) });
+app.get('/updateUser/:token', (req, res) => { api.updateUser(req, res) });
+app.get('/remove/:token', (req, res) => { api.remove(req, res) });
 
 
 app.listen(settings.port);

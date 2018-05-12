@@ -54,10 +54,7 @@ class WeaponsMenu
             }
         });
 
-        $('body').on('contextmenu', "#" + this.cssId, function (e)
-        {
-            return false;
-        });
+        $('body').on('contextmenu', "#" + this.cssId, (e) => { return false; });
 
         this.isVisable = false;
     }

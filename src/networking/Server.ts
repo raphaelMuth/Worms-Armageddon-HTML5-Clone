@@ -55,7 +55,7 @@ class GameServer
             this.lobby.onDisconnection(socket,io);
 
             //This allows the clients to get the  current time of the server
-            socket.on(Events.client.GET_GAME_TIME, function (msg,func)
+            socket.on(Events.client.GET_GAME_TIME, (msg, func) =>
             {
                 func(Date.now());
             });

@@ -16,7 +16,7 @@
 module Effects
 {
 
-    export function explosion(epicenter,
+    export const explosion = (epicenter,
         explosionRadius,
         effectedRadius,
         explosiveForce, 
@@ -24,7 +24,7 @@ module Effects
         entityThatCausedExplosion = null,
         soundEffectToPlay = AssetManager.getSound("explosion" + Utilies.random(1, 3)),
         particleEffectType = ParticleEffect,
-       )
+       ) =>
     {
         var posX = Physics.metersToPixels(Math.floor(epicenter.x));
         var posY = Physics.metersToPixels(Math.floor(epicenter.y));
@@ -34,7 +34,7 @@ module Effects
         Physics.applyToNearByObjects(
             epicenter,
             effectedRadius,
-            function (fixture, epicenter)
+            (fixture, epicenter) =>
             {
                 // Applys force to all the bodies in the radius
                 if (fixture.GetBody().GetType() != b2Body.b2_staticBody && fixture.GetBody().GetUserData() instanceof Worm)

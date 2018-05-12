@@ -63,7 +63,7 @@ module Graphics
 
     export var preRenderer = new PreRenderer();
 
-    export function init()
+    export const init = () =>
     {
         if (Settings.DEVELOPMENT_MODE)
         {
@@ -96,7 +96,7 @@ module Graphics
     }
 
     // may be useful in the furture for drawing rounded conor boxes for over the players head
-    export function roundRect(ctx, x, y, w, h, r)
+    export const roundRect = (ctx, x, y, w, h, r) =>
     {
         if (w < 2 * r) r = w / 2;
         if (h < 2 * r) r = h / 2;
@@ -110,7 +110,7 @@ module Graphics
         return ctx;
     }
 
-    export function createCanvas(name: string)
+    export const createCanvas = (name: string) =>
     {
 
         var canvas = <HTMLCanvasElement>document.createElement('canvas');
@@ -123,7 +123,7 @@ module Graphics
         window.document.body.appendChild(canvas);
 
         //Disable context menu so I can use right click for game controls
-        $('body').on('contextmenu', "#" + name, function (e)
+        $('body').on('contextmenu', "#" + name, (e) =>
         {
             return false;
         });

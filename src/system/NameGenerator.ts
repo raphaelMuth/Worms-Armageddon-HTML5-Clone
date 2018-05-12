@@ -26,7 +26,7 @@ module NameGenerator
     // var nameDataSrc = "wikilocal.html";
 
 
-    export function init(callback)
+    export const init = (callback) =>
     {
 
         //$.ajax({
@@ -51,7 +51,7 @@ module NameGenerator
 
     }
 
-    export function randomName()
+    export const randomName = () =>
     {
         if (randomNamesList.length == 0)
             return "Error with genertor";

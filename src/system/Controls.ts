@@ -66,7 +66,7 @@ module Controls
         mouse: 1
     }
 
-    export function checkControls(control,key)
+    export const checkControls = (control, key)  =>
     {
         return (key == control.gamepad || key == control.keyboard ||  key == control.mouse);
     }

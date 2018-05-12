@@ -97,7 +97,7 @@ class SoundFallback extends Sound
         $(this.audio).on("loadeddata", () =>
         {
             AssetManager.numAssetsLoaded++;
-            Logger.log(" Sound loaded " + this.audio.src );
+            //Logger.log(" Sound loaded " + this.audio.src );
         });
 
         this.audio.onerror = () => {

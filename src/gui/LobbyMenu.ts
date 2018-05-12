@@ -78,7 +78,7 @@ class LobbyMenu
     bind()
     {
         
-        $('#googlePlusdisconnectUser').click(function ()
+        $('#googlePlusdisconnectUser').click( () =>
         {
             googlePlusdisconnectUser(access_token);
         });
@@ -106,7 +106,7 @@ class LobbyMenu
             this.lobbyRef.client_joinQuickGame();
         })
 
-        $(LobbyMenu.CSS_ID.CREATE_BTN).click(function ()
+        $(LobbyMenu.CSS_ID.CREATE_BTN).click( () =>
         {
             $(LobbyMenu.CSS_ID.CREATE_LOBBY_POP_UP).modal('show');
 
@@ -115,12 +115,12 @@ class LobbyMenu
             if ($('#mapSelector').length == 0)
             {
                 $('.modal-body').prepend(levelSelector.getView());
-                levelSelector.bind(function ()  {
+                levelSelector.bind( () => {
                     AssetManager.getSound("CursorSelect").play();
                 });
             }
 
-            $(LobbyMenu.CSS_ID.CREATE_LOBBY_FORM_SUBMIT).click((e) =>
+            $(LobbyMenu.CSS_ID.CREATE_LOBBY_FORM_SUBMIT).click( (e) =>
             {
                 $(LobbyMenu.CSS_ID.CREATE_LOBBY_FORM_SUBMIT).unbind();
                 var name = $(LobbyMenu.CSS_ID.CREATE_LOBBY_FORM + " #inputName").val();

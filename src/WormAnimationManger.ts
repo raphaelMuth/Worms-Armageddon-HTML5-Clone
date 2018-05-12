@@ -125,7 +125,7 @@ class WormAnimationManger
                      maxDamage
                  );
 
-                animation.onAnimationFinish(function ()
+                animation.onAnimationFinish( () =>
                 {
                     //All animations to do with death are finished so derement semaphore
                     WormAnimationManger.playerAttentionSemaphore--;

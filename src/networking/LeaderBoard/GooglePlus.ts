@@ -47,18 +47,18 @@ function googlePlusdisconnectUser(access_token)
     var revokeUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' +
         access_token;
     // Perform an asynchronous GET request.
-    var revokeAppPermssion = function() {
+    var revokeAppPermssion = () => {
         $.ajax({
             type: 'GET',
             url: revokeUrl,
             async: false,
             contentType: "application/json",
             dataType: 'jsonp',
-            success: function (nullResponse)
+            success: (nullResponse) =>
             {
                 Notify.display("Google+ Token Revoked", "All your user data has now been removed from the database and this app no longer has permission to use your Google+ sign to rank you in the leaderboard", 11000);
             },
-            error: function (e)
+            error: (e) =>
             {
 
                 Notify.display("Unsuccessful", "Somthing went wrong and we couldn't revoke the token try this <a href=https://plus.google.com/apps >https://plus.google.com/apps</a>. Though your information has been removed from the leaderboards", 11000, Notify.levels.error);

@@ -236,7 +236,7 @@ class Game
         }
 
         //Diable certain keys
-        $(document).keydown(function (e)
+        $(document).keydown( (e) =>
         {
             if (e.keyCode == keyboard.keyCodes.Backspace)
             {

@@ -193,7 +193,7 @@ function TwinStickControls(canvas)
     this.sticks = [new Stick(this.inputSize)]; 
 
     var __this = this;
-    canvas.addEventListener("touchstart", function (e)
+    canvas.addEventListener("touchstart", (e) =>
     {
         e.preventDefault();
 
@@ -208,7 +208,7 @@ function TwinStickControls(canvas)
         }
     });
 
-    document.addEventListener("touchmove", function (e : any)
+    document.addEventListener("touchmove", (e : any) =>
     {
         e.preventDefault();
 
@@ -221,7 +221,7 @@ function TwinStickControls(canvas)
         }
     });
 
-    document.addEventListener("touchend", function (e : any)
+    document.addEventListener("touchend", (e : any) =>
     {
         var touches = e.changedTouches;
         for (var i = 0; i < touches.length; ++i)
@@ -232,7 +232,7 @@ function TwinStickControls(canvas)
     });
 }
 
-TwinStickControls.prototype.update = () =>
+TwinStickControls.prototype.update = function()
 {
     for (var i = 0; i < this.sticks.length; ++i)
     {

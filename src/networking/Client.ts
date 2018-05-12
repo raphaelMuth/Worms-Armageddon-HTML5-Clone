@@ -9,7 +9,7 @@ module Client
     var packetRateLimiter: Timer;
     var previous = "";
 
-    export function connectionToServer(ip, port)
+    export const connectionToServer = (ip, port) =>
     {
         try
         {
@@ -17,13 +17,13 @@ module Client
             Logger.debug(" Client connecting to " + dest);
             socket = io.connect(dest);
 
-            socket.on(Events.client.ASSIGN_USER_ID, function (id)
+            socket.on(Events.client.ASSIGN_USER_ID, (id) =>
             {
                 Logger.debug(" Your have been assigned an id " + id);
                 Client.id = id;
             });
 
-            socket.on('disconnect', function(){
+            socket.on('disconnect', () => {
 
                 Notify.display("Bad News :(", 
                     "So it looks like the game server has crashed or maybe your internet connection has been cut? "+
@@ -34,7 +34,7 @@ module Client
 
             });
 
-            socket.on(Events.client.ACTION, function (packet)
+            socket.on(Events.client.ACTION, (packet) =>
             {
                var instructionSet : InstructionChain = Utilies.copy(new InstructionChain(), packet);
                instructionSet.callFunc(GameInstance);
@@ -42,14 +42,14 @@ module Client
             });
 
             // This allows for smaller action packets
-            socket.on(Events.client.CURRENT_WORM_ACTION, function (packet)
+            socket.on(Events.client.CURRENT_WORM_ACTION, (packet) =>
             {
                var instructionSet : InstructionChain = Utilies.copy(new InstructionChain(), packet);
                instructionSet.callFunc(GameInstance.state.getCurrentPlayer().getTeam().getCurrentWorm());
                 
             });
 
-            socket.on(Events.client.UPDATE, function (packet)
+            socket.on(Events.client.UPDATE, (packet) =>
             {
                     var physicsDataPacket = new PhysiscsDataPacket(packet);
                     physicsDataPacket.override(Physics.fastAcessList);
@@ -76,7 +76,7 @@ module Client
         }
     }
 
-    export function sendRateLimited(event, packet){
+    export const sendRateLimited = (event, packet) => {
 
         packetRateLimiter.update();
 
@@ -92,12 +92,12 @@ module Client
 
     // Is the game an only one and if so is the current player == to this client
     //Spefic to online games, allows returns true in single player
-    export function isClientsTurn()
+    export const isClientsTurn = () => 
     {
         return GameInstance.gameType == Game.types.LOCAL_GAME || GameInstance.lobby.client_GameLobby.currentPlayerId == Client.id
     }
 
-    export function sendImmediately(event, packet, rateLimiter = 0){
+    export const sendImmediately = (event, packet, rateLimiter = 0) => {
 
         if (GameInstance.gameType == Game.types.ONLINE_GAME)
         {

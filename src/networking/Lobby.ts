@@ -64,7 +64,7 @@ class Lobby
         //When any user connects to the node server we set their socket an ID
         //so we can idefnitny them unqine in their dealings with the server
         var token = ServerUtilies.createToken() + this.userCount;
-        socket.set('userId', token, function ()
+        socket.set('userId', token, () =>
         {
             io.log.info(Util.format("User connected and assigned ID " + token + " from " + socket.handshake.address.address));
         });
@@ -166,7 +166,7 @@ class Lobby
         });
 
         // Google plus login
-        socket.on(Events.lobby.GOOGLE_PLUS_LOGIN, function (googleAuthToken) {
+        socket.on(Events.lobby.GOOGLE_PLUS_LOGIN, (googleAuthToken) => {
 
             // TODO use this inside of cURL
             //request({
@@ -240,12 +240,12 @@ class Lobby
         *   Game sync event bindings  
         ************************************************************/
 
-        socket.on(Events.client.UPDATE, function (data)
+        socket.on(Events.client.UPDATE, (data) =>
         {
 
-            socket.get('userId', function (err, userId)
+            socket.get('userId', (err, userId) =>
             {
-                socket.get('gameLobbyId', function (err, gameLobbyId)
+                socket.get('gameLobbyId', (err, gameLobbyId) =>
                 {
                     io.log.info(Util.format("@ UPDATE   " + data));
                     socket.broadcast.to(gameLobbyId).emit(Events.client.UPDATE, data);
@@ -255,12 +255,12 @@ class Lobby
         });
 
 
-        socket.on(Events.client.ACTION, function (data) {
+        socket.on(Events.client.ACTION, (data) => {
 
-            socket.get('userId', function (err, userId)
+            socket.get('userId', (err, userId) =>
             {
 
-                socket.get('gameLobbyId', function (err, gameLobbyId)
+                socket.get('gameLobbyId', (err, gameLobbyId) =>
                 {
                     io.log.info(Util.format("@ Events.gameLobby.UPDATE from userId " + userId + " for lobby " + gameLobbyId + "   " + data));
                     socket.broadcast.to(gameLobbyId).emit(Events.client.ACTION, data);
@@ -269,12 +269,12 @@ class Lobby
         });
 
         // This is done to make the action packets smaller
-        socket.on(Events.client.CURRENT_WORM_ACTION, function (data) {
+        socket.on(Events.client.CURRENT_WORM_ACTION, (data) => {
 
-            socket.get('userId', function (err, userId)
+            socket.get('userId', (err, userId) =>
             {
 
-                socket.get('gameLobbyId', function (err, gameLobbyId)
+                socket.get('gameLobbyId', (err, gameLobbyId) =>
                 {
                     io.log.info(Util.format("@ Events.client.CURRENT_WORM_ACTION" + userId + " for lobby " + gameLobbyId + "   " + data));
                     socket.broadcast.to(gameLobbyId).emit(Events.client.CURRENT_WORM_ACTION, data);

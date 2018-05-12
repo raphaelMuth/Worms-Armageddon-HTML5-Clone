@@ -46,7 +46,7 @@ class SettingsMenu
     bind(callback)
     {
         var __this = this;
-        $('a.thumbnail').click(function()
+        $('a.thumbnail').click( function()
         {
             var levelId = $(this).attr('id');
             $('a.thumbnail').css({ "background": "white" });

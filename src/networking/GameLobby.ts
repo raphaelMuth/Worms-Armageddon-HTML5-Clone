@@ -89,7 +89,7 @@ class GameLobby
 
         // Start the game for all other playrs by passing the player information create
         // by the host client to them.
-        Client.socket.on(Events.gameLobby.START_GAME_FOR_OTHER_CLIENTS, function (data)
+        Client.socket.on(Events.gameLobby.START_GAME_FOR_OTHER_CLIENTS, (data) =>
         {
              var gameLobby = (Utilies.copy(new GameLobby(null, null), data.lobby));          
              Game.map = new GameMap(Maps[gameLobby.mapName]);
@@ -107,7 +107,7 @@ class GameLobby
             GameInstance.start();
         });
 
-        Client.socket.on(Events.gameLobby.PLAYER_DISCONNECTED, function (playerId)
+        Client.socket.on(Events.gameLobby.PLAYER_DISCONNECTED, (playerId) =>
         {
             Logger.log("Events.gameLobby.PLAYER_DISCONNECTED " + playerId);
 

@@ -11,7 +11,7 @@ try
 
 module ServerUtilies
 {
-    export function findByValue(needle, haystack, haystackProperity, )
+    export const findByValue = (needle, haystack, haystackProperity, ) =>
     {
 
         for (var i = 0; i < haystack.length; i++)
@@ -24,37 +24,37 @@ module ServerUtilies
         throw "Couldn't find object with proerpty " + haystackProperity + " equal to " + needle;
     }
 
-    export function deleteFromCollection(collection, indexToRemove)
+    export const deleteFromCollection = (collection, indexToRemove) =>
     {
         delete collection[indexToRemove];
         collection.splice(indexToRemove, 1);
     }
 
-    export function createToken()
+    export const createToken = () =>
     {
         return Math.random().toString(36).substr(2);
     }
 
 
-    export function info(io,message)
+    export const info = (io,message) =>
     {
         if (ServerSettings.DEVELOPMENT_MODE)
               io.log.info(Util.format("@ " + message));
     }
 
-    export function warn(io,message)
+    export const warn = (io,message) =>
     {
         if (Settings.DEVELOPMENT_MODE)
            io.log.warn(Util.format("@ " + message));
     }
 
-    export function debug(io,message)
+    export const debug = (io,message) =>
     {
         if (ServerSettings.DEVELOPMENT_MODE)
                io.log.debug(Util.format("@ " + message));
     }
 
-    export function error(io,message)
+    export const error = (io, message) =>
     {
         if (ServerSettings.DEVELOPMENT_MODE)
                 io.log.error(Util.format("@ " + message));

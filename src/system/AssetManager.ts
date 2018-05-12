@@ -75,23 +75,23 @@ module AssetManager
     export var images = [];
     export var sounds = [];
 
-    export function isReady()
+    export const isReady = () =>
     {
         return (numAssetsLoaded) == imagesToBeLoaded.length + audioToBeLoaded.length;
     }
 
-    export function getPerAssetsLoaded()
+    export const getPerAssetsLoaded = () =>
     {
         //Logger.debug(" ImagesToLoad {0} AudioToLoad {1} and totalsofar {2}".format(imagesToBeLoaded.length, audioToBeLoaded.length, numAssetsLoaded));
         return ((numAssetsLoaded) / (imagesToBeLoaded.length + audioToBeLoaded.length)) * 100;
     }
 
-    export function getImage(s)
+    export const getImage = (s) =>
     {
         return images[s];
     }
 
-    export function getSound(s): Sound
+    export const getSound = (s): Sound =>
     {
         //If sound not found
         if (sounds[s] == null)
@@ -102,7 +102,7 @@ module AssetManager
         return sounds[s];
     }
 
-    export function loadImages(sources)
+    export const loadImages = (sources) =>
     {
 
         var images = [];
@@ -126,9 +126,9 @@ module AssetManager
                     $('body').append(images[name]);
                 }
 
-                images[name].onload = function ()
+                images[name].onload = () =>
                 {
-                    Logger.log(" Image " + this.src + " loaded sucessfully ");
+                    // Logger.log(" Image " + this.src + " loaded sucessfully ");
                     if (++loadedImages >= numImages)
                     {
                         for (var img in images)
@@ -149,7 +149,7 @@ module AssetManager
 
     }
 
-    export function addSpritesDefToLoadList()
+    export const addSpritesDefToLoadList = () =>
     {
         // Load all sprites
         for (var sprite in Sprites.worms)
@@ -181,7 +181,7 @@ module AssetManager
 
     }
 
-    export function loadAssets()
+    export const loadAssets = () =>
     {
         addSpritesDefToLoadList();
 
@@ -212,7 +212,7 @@ module AssetManager
         //}
     }
 
-    export function loadSounds(sources)
+    export const loadSounds = (sources) =>
     {
         //First lets try load our audio using the web audio API
         try
@@ -223,7 +223,7 @@ module AssetManager
             }
 
             Sound.context = new webkitAudioContext();
-            var bufferLoader = new BufferLoader(Sound.context, sources, function (bufferList)
+            var bufferLoader = new BufferLoader(Sound.context, sources, (bufferList) =>
             {
                 for (var i = 0; i < bufferList.length; i++)
                 {

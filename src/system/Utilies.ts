@@ -44,7 +44,7 @@ module Notify
         error: "alert-error"
     };
 
-    export function display(header: string, message: string, autoHideTime = 2800, cssStyle = Notify.levels.sucess,doNotOverWrite = false)
+    export const display = (header: string, message: string, autoHideTime = 2800, cssStyle = Notify.levels.sucess,doNotOverWrite = false) =>
     {
         if (!locked)
         {
@@ -62,7 +62,7 @@ module Notify
 
             $("#notifaction").animate({
                 top:  (parseInt($("#notifaction").css("height"))) +"px"
-            }, 400, function ()
+            }, 400, () =>
             {
                 if (autoHideTime > 0)
                 {
@@ -76,13 +76,13 @@ module Notify
 
     }
 
-    export function hide(callback)
+    export const hide = (callback) =>
     {
         if (!locked)
         {
             $("#notifaction").animate({
                 top: (-parseInt($("#notifaction").css("height"))) - 100 + "px"
-            }, 400, function () {
+            }, 400, () => {
                 locked = false;
                 if (callback != null)
                 {
@@ -101,7 +101,7 @@ module Utilies
     //for objects that are sent over the network. I have intergrated this function, into
     // the constructor of the Person object so it acts like C-style copy construction
     // WARNING: This creates a deep copy, so reference are not preserved
-    export function copy(newObject, oldObject)
+    export const copy = (newObject, oldObject) =>
     {
 
         for (var member in oldObject)
@@ -133,9 +133,9 @@ module Utilies
         return newObject;
     };
 
-    export function sign(x) { return x > 0 ? 1 : x < 0 ? -1 : 0; }
+    export const sign = (x) => { return x > 0 ? 1 : x < 0 ? -1 : 0; }
 
-    export function findByValue(needle, haystack, haystackProperity, )
+    export const findByValue = (needle, haystack, haystackProperity, ) =>
     {
 
         for (var i = 0; i < haystack.length; i++)
@@ -148,18 +148,18 @@ module Utilies
         throw "Couldn't find object with proerpty " + haystackProperity + " equal to " + needle;
     }
 
-    export function random(min, max)
+    export const random = (min, max) =>
     {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    export function pickRandom(collection)
+    export const pickRandom = (collection) =>
     {
         return collection[random(0, collection.length - 1)];
     }
 
     var pickUnqineCollection = [];
-    export function pickUnqine(collection, stringId: string)
+    export const pickUnqine = (collection, stringId: string) =>
     {
         if (pickUnqineCollection[stringId])
         {
@@ -184,7 +184,7 @@ module Utilies
     }
 
 
-    export function pickRandomSound(collection: string[])
+    export const pickRandomSound = (collection: string[]) =>
     {
         var sound: Sound = AssetManager.getSound(collection[random(0, collection.length - 1)]);
 
@@ -197,33 +197,33 @@ module Utilies
     }
 
 
-    export function deleteFromCollection(collection, indexToRemove)
+    export const deleteFromCollection = (collection, indexToRemove) =>
     {
         delete collection[indexToRemove];
         collection.splice(indexToRemove, 1);
     }
 
-    export function isBetweenRange(value, rangeMax, rangeMin)
+    export const isBetweenRange = (value, rangeMax, rangeMin) =>
     {
         return value >= rangeMin && value <= rangeMax;
     }
 
-    export function angleToVector(angle: number)
+    export const angleToVector = (angle: number) =>
     {
         return new b2Vec2(Math.cos(angle), Math.sin(angle));
     }
 
-    export function vectorToAngle(vector)
+    export const vectorToAngle = (vector) =>
     {
         return Math.atan2(vector.y, vector.x);
     }
 
-    export function toRadians(angleInDegrees: number)
+    export const toRadians = (angleInDegrees: number) =>
     {
         return angleInDegrees * (Math.PI / 180);
     }
 
-    export function toDegrees(angleInRdains: number)
+    export const toDegrees = (angleInRdains: number) =>
     {
         return angleInRdains * (180 / Math.PI);
     }
@@ -244,7 +244,7 @@ module Utilies
     //};
 
     
-	export function compress(s){
+    export const compress = (s) => {
 		var dict = {};
 	    var data = (s + "").split("");
 	    var out = [];
@@ -270,7 +270,7 @@ module Utilies
 	    return out.join("");
 	}
 
-	export function decompress(s)
+    export const decompress = (s) =>
 	{
 
 	    var dict = {};
@@ -301,7 +301,7 @@ module Utilies
 
 	}
 
-    export function isNumber(n) {
+    export const isNumber = (n) => {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
@@ -312,25 +312,25 @@ module Utilies
 module Logger
 {
 
-    export function log(message)
+    export const log = (message) =>
     {
         if (Settings.DEVELOPMENT_MODE || Settings.LOG)
             console.info(message);
     }
 
-    export function warn(message)
+    export const warn = (message) =>
     {
         if (Settings.DEVELOPMENT_MODE || Settings.LOG)
          console.warn(message);
     }
 
-    export function debug(message)
+    export const debug = (message) =>
     {
         if (Settings.DEVELOPMENT_MODE || Settings.LOG )
             console.log(message);
     }
 
-    export function error(message)
+    export const error = (message) =>
     {
         if (Settings.DEVELOPMENT_MODE || Settings.LOG)
             console.error(message);
@@ -342,13 +342,13 @@ module TouchUI
     var isFireHeld = false;
     var isJumpPressed = false;
 
-    export function isTouchDevice() {
+    export const isTouchDevice = () => {
       return 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
     };
 
 
-    export function init() 
+    export const init = () => 
     {      
         if (TouchUI.isTouchDevice())
         {
@@ -358,7 +358,7 @@ module TouchUI
             $('body').append("<div class=touchButton id=" + fireButtonCssId + ">Fire</div>");
             $('body').append("<div class=touchButton id=" + jumpButtonCssId + ">Jump</div>");
 
-            $("#" + fireButtonCssId).bind('touchstart', function (e)
+            $("#" + fireButtonCssId).bind('touchstart', (e) =>
             {
                 e.preventDefault();
                 isFireHeld = true;
@@ -366,20 +366,20 @@ module TouchUI
             });
 
 
-            $("#" + fireButtonCssId).bind("touchend", function (e)
+            $("#" + fireButtonCssId).bind("touchend", (e) =>
             {
                 isFireHeld = false;
                 Logger.log("touchend");
             });
 
-            $("#" + jumpButtonCssId).bind('touchstart', function (e)
+            $("#" + jumpButtonCssId).bind('touchstart', (e) =>
             {
                 e.preventDefault();
                 isJumpPressed = true;
             });
 
 
-            $("#" + jumpButtonCssId).bind("touchend", function (e)
+            $("#" + jumpButtonCssId).bind("touchend", (e) =>
             {
                 isJumpPressed = false;
             });
@@ -387,7 +387,7 @@ module TouchUI
     }
 
 
-    export function isFireButtonDown(reset = false)
+    export const isFireButtonDown = (reset = false) =>
     {
         if (isFireHeld && reset)
         {
@@ -398,7 +398,7 @@ module TouchUI
         return  isFireHeld;
     }
 
-    export function isJumpDown(reset = false)
+    export const isJumpDown = (reset = false) =>
     {
          if (isJumpPressed && reset)
         {
@@ -422,12 +422,12 @@ module keyboard
     (function ()
     {
 
-        $(window).keydown(function (e)
+        $(window).keydown((e) =>
         {
             keys[e.which] = true;
         });
 
-        $(window).keyup(function (e)
+        $(window).keyup((e) =>
         {          
             delete keys[e.which];
         });
@@ -435,7 +435,7 @@ module keyboard
     })();
 
 
-    export function isKeyDown(keyCode, actLikeKeyPress = false)
+    export const isKeyDown = (keyCode, actLikeKeyPress = false) =>
     {
         for (var key in keys)
         {
@@ -453,7 +453,7 @@ module keyboard
         return false;
     }
 
-    export function getKeyName(keycode: number)
+    export const getKeyName = (keycode: number) =>
     {
         for (var i in keyCodes)
         {

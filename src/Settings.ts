@@ -47,7 +47,7 @@ module Settings
 
 
     //Pasers commandline type arguments from the page url like this ?argName=value
-    export function getSettingsFromUrl()
+    export const getSettingsFromUrl = () =>
     {
         var argv = getUrlVars();
         var commands = ["physicsDebugDraw","devMode","unitTest","sound"]
@@ -77,7 +77,7 @@ module Settings
         Logger.log(" Notice: argv are as follows " + commands);
     }
 
-    export function getUrlVars() {
+    export const getUrlVars = () => {
         var vars = {};
         var localVars = new URL(window.location.href).search.substring(1).split('&');
         localVars.forEach(pair => { vars[pair.split('=')[0]] = pair.split('=')[1] })

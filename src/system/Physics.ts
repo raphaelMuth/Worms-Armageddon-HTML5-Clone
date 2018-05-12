@@ -48,12 +48,12 @@ module Physics
 
     // For fast acess to all bodies that aren't the terrain
     export var fastAcessList = [];
-    export function addToFastAcessList(body)
+    export const addToFastAcessList = (body) =>
     {
         fastAcessList.push(body);
     }
 
-    export function removeToFastAcessList(body)
+    export const removeToFastAcessList = (body) =>
     {
         for (var b in fastAcessList)
         {
@@ -65,7 +65,7 @@ module Physics
     }
 
 
-    export function init(ctx)
+    export const init = (ctx) =>
     {
 
         Physics.worldScale = 30;
@@ -92,7 +92,7 @@ module Physics
         // I have set the this pionter as the user data, which allows me to then call methods
         // on that class as we can see below.
         var listener = new b2ContactListener();
-        listener.BeginContact = function (contact)
+        listener.BeginContact = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().beginContact != null)
@@ -108,7 +108,7 @@ module Physics
         }
 
 
-        listener.EndContact = function (contact)
+        listener.EndContact = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().endContact != null)
@@ -123,7 +123,7 @@ module Physics
             }
         }
 
-        listener.PostSolve = function (contact,impulse)
+        listener.PostSolve = (contact,impulse) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().postSolve != null)
@@ -139,7 +139,7 @@ module Physics
 
         }
 
-        listener.PreSolve = function (contact)
+        listener.PreSolve = (contact) =>
         {
             if (contact.GetFixtureA().GetBody().GetUserData() != null &&
                 contact.GetFixtureA().GetBody().GetUserData().preSolve != null)
@@ -159,7 +159,7 @@ module Physics
     }
 
     //Checks if the collison is between an obj of type1 and an obj of type2
-    export function isCollisionBetweenTypes(objType1, objType2, contact)
+    export const isCollisionBetweenTypes = (objType1, objType2, contact) =>
     {
         var obj1 = contact.GetFixtureA().GetBody().GetUserData();
         var obj2 = contact.GetFixtureB().GetBody().GetUserData();
@@ -177,7 +177,7 @@ module Physics
         }
     }
 
-    export function shotRay(startPiontInMeters, endPiontInMeters)
+    export const shotRay = (startPiontInMeters, endPiontInMeters) =>
     {
         var input = new b2RayCastInput();
         var output = new b2RayCastOutput();
@@ -228,13 +228,13 @@ module Physics
         return null;
     }
 
-    export function applyToNearByObjects(epicenter, effectedRadius, funcToApplyToEach)
+    export const applyToNearByObjects = (epicenter, effectedRadius, funcToApplyToEach) =>
     {
         var aabb = new b2AABB();
         aabb.lowerBound.Set(epicenter.x - effectedRadius, epicenter.y - effectedRadius);
         aabb.upperBound.Set(epicenter.x + effectedRadius, epicenter.y + effectedRadius);
 
-        Physics.world.QueryAABB(function (fixture)
+        Physics.world.QueryAABB( (fixture) =>
         {
             funcToApplyToEach(fixture, epicenter);
             return true;
@@ -243,30 +243,30 @@ module Physics
     }
 
     //Converts pixels to physic world measurement
-    export function pixelToMeters(pixels: number)
+    export const pixelToMeters = (pixels: number) =>
     {
         return pixels / worldScale;
     }
 
     //Converts physic world measurement to pixels;
-    export function metersToPixels(meters: number)
+    export const metersToPixels = (meters: number) =>
     {
         return meters * worldScale;
     }
 
     //Converts a vector in pixels to physic world measurement
-    export function vectorPixelToMeters(vPixels)
+    export const vectorPixelToMeters = (vPixels) =>
     {
         return new b2Vec2(vPixels.x / worldScale, vPixels.y / worldScale);
     }
 
     //Converts a vector in physic world measurement to pixels;
-    export function vectorMetersToPixels(vMeters)
+    export const vectorMetersToPixels = (vMeters) =>
     {
         return new b2Vec2(vMeters.x * worldScale, vMeters.y * worldScale);
     }
 
-    export function bodyToDrawingPixelCoordinates(body)
+    export const bodyToDrawingPixelCoordinates = (body) =>
     {
         var pos = body.GetPosition();
         var radius = body.GetFixtureList().GetShape().GetRadius();
